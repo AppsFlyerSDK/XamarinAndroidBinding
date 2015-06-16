@@ -1,0 +1,29 @@
+﻿<Properties StartupItem="AFXamarinAndroidSampleApp/AFXamarinAndroidSampleApp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Nexus_5_by_Google" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AFXamarinAndroidSampleApp/MainActivity.cs">
+    <Files>
+      <File FileName="AFXamarinAndroidSampleApp/MainActivity.cs" Line="10" Column="34" />
+      <File FileName="AFXamarinAndroidSampleApp/AppsFlyerConversionDelegate.cs" Line="35" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AppsFlyerXamarinBindingAndroid" expanded="True">
+            <Node name="AFXamarinAndroidSampleApp" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="MainActivity.cs" selected="True" />
+            </Node>
+            <Node name="AppsFlyerXamarinBindingAndroid" expanded="True">
+              <Node name="Packages" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AFXamarinAndroidSampleApp AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>
