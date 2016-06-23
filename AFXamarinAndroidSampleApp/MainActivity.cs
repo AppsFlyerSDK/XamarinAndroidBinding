@@ -16,28 +16,22 @@ namespace AFXamarinAndroidSampleApp
 	{
 		int count = 1;
 
+
 		protected override void OnCreate (Bundle bundle)
 		{
+			SetContentView (Resource.Layout.Main);
+
 			Console.WriteLine ("AppsFlyerXamarinAndroidSampleApp onCreate");
 			base.OnCreate (bundle);
 
-			AppsFlyerLib.SetAppsFlyerKey ("rbz2mfgZQY5mSEYNTyjwni"); 
-			AppsFlyerLib.SendTracking (this);
+			AppsFlyerLib.Instance.StartTracking (this.Application, "rbz2mfgZQY5mSEYNTyjwni");
+			AppsFlyerLib.Instance.RegisterConversionListener (this, new AppsFlyerConversionDelegate ());
 
-			//AppsFlyerLib.GetConversionData (this);
-			AppsFlyerLib.RegisterConversionListener (this, new AppsFlyerConversionDelegate ());
-
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
-
-			// Get our button from the layout resource,
-			// and attach an event to it
 			Button button = FindViewById<Button> (Resource.Id.myButton);
-
 			button.Click += delegate {
 				button.Text = string.Format ("{0} Add to cart sent", count++);
 
-				AppsFlyerLib.TrackEvent(this, AFInAppEventType.AddToCart, new Dictionary<string, Java.Lang.Object> { 
+				AppsFlyerLib.Instance.TrackEvent(this, AFInAppEventType.AddToCart, new Dictionary<string, Java.Lang.Object> { 
 					{AFInAppEventParameterName.ContentId, "id1234"}, 
 					{AFInAppEventParameterName.ContentType, "tickets"},
 					{AFInAppEventParameterName.Price, 123},
