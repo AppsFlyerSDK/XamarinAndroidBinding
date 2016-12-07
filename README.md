@@ -7,6 +7,11 @@ AppsFlyer Xamarin Binding version 1.0.0
 AppsFlyer’s Xamarin binding provides application installation and events tracking functionality
 
 
+#Nuget
+Install-Package AppsFlyerXamarinBindingAndroid<br>
+https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
+
+
 #Initial steps
 
 To Embed SDK into your Application:
