@@ -35,10 +35,7 @@ using Com.Appsflyer; at the top of the file.
 
 Add the following code in the OnCreate method:
 
-protected override void OnCreate (Bundle bundle)
-
-	AppsFlyerLib.SetAppsFlyerKey ("YOUR_DEV_KEY_HERE"); 
-	AppsFlyerLib.SendTracking (this);
+	AppsFlyerLib.Instance.StartTracking (this.Application, "YOUR_DEV_KEY");
 
 Basically, every API call for Android SDK is available here as well. For more information please refer to Appsflyer Android Integration guide.
 
