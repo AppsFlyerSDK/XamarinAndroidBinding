@@ -63,3 +63,34 @@ For Conversion data your should call this method:
 
 	AppsFlyerLib.RegisterConversionListener (this, new AppsFlyerConversionDelegate ()); 
 AppsFlyerConversionDelegate.cs can be found in the sample app provided with this guide 
+
+
+# Uninstall tracking
+
+1. Add the Xamarin Google Play Services - GCM Nugget to your project.
+2. Add the following permissions to your AndroidManifest.xml file:
+```
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<permission android:name="your.app.name.permission.C2D_MESSAGE"
+	android:protectionLevel="signature" />
+<uses-permission android:name="your.app.name.permission.C2D_MESSAGE" />
+<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+```
+3. Add the following receiver to your AndroidManifest.xml file:
+```
+<receiver
+   android:name="com.google.android.gms.gcm.GcmReceiver"
+   android:exported="true">
+   <intent-filter>
+       <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+   </intent-filter>
+</receiver>
+```
+3. Add the following method call before "startTracking":
+
+```AppsFlyerLib.Instance.SetGCMProjectNumber(this.Application, "SenderID");```
+
+4. Add your Server Key to AppsFlyer's dashboard.
+
+For more information regarding how to obtain the Server Key and SenderID, please review this article : https://support.appsflyer.com/hc/en-us/articles/208004986-Android-Uninstall-Tracking
+
