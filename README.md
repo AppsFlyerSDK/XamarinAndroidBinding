@@ -1,18 +1,18 @@
 # XamarinAndroidBinding
 
 Xamarin Binding integration guide For Android
-AppsFlyer Xamarin Binding version 1.0.0
+AppsFlyer Xamarin Binding version 1.3.0
 
 #Introduction
 AppsFlyer’s Xamarin binding provides application installation and events tracking functionality
 
 
-#Nuget
+# Nuget
 Install-Package AppsFlyerXamarinBindingAndroid<br>
 https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
 
 
-#Initial steps
+# Initial steps
 
 To Embed SDK into your Application:
 
@@ -27,7 +27,7 @@ To Embed SDK into your Application:
 5. Locate GooglePlayServicesLib.dll and add it as well (for advertising Id
 
 
-#SDK Initialization
+# SDK Initialization
 
 Go to your MainActivity.cs and add:
 
