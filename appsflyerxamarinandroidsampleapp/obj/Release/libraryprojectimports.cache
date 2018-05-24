@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <Jars>
+    <Jar>obj/Release/lp/0/jl/AF-Android-SDK.jar</Jar>
+    <Jar>obj/Release/lp/2/jl/arch-core-common.jar</Jar>
+    <Jar>obj/Release/lp/3/jl/arch-lifecycle-common.jar</Jar>
+    <Jar>obj/Release/lp/6/jl/support-annotations.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/0/jl/AF-Android-SDK.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/10/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/11/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/12/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/13/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/2/jl/arch-core-common.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/3/jl/arch-lifecycle-common.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/4/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/5/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/6/jl/support-annotations.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/7/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/8/jl/bin/classes.jar</Jar>
+    <Jar>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/9/jl/bin/classes.jar</Jar>
+  </Jars>
+  <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/7/jl/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/11/jl/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/12/jl/res</ResolvedResourceDirectory>
+  </ResolvedResourceDirectories>
+  <ResolvedAssetDirectories />
+  <ResolvedEnvironmentFiles />
+  <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/7.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/11.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/benjamin/Desktop/AppsFlyerXamarinBindingAndroid/appsflyerxamarinandroidsampleapp/obj/Release/lp/12.stamp</ResolvedResourceDirectoryStamp>
+  </ResolvedResourceDirectoryStamps>
+</Paths>
