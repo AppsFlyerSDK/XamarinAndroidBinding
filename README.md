@@ -34,19 +34,19 @@ The API for the binding coincides with the native Android API, which can be foun
 - [Nuget](#nuget_install)
 - [Quick Start](#quickStart)
 - [API Methods](#api-methods)
--  [SDK Initialization](#sdk_init)
--  [Tracking In-App Events](#adding_events)
--  [Get Conversion Data](#conversion_data)
--  [Tracking Deep Linking](#deep_linking)
-- [Track App Uninstalls](#uninstall_tracking)
-- [Set Customer User ID](#SetCustomerUserId)
-- [Set Debug Log](#SetDebugLog)
-- [Get AppsFlyer UID](#GetAppsFlyerUID)
-- [Set Min Time Between Sessions](#SetMinTimeBetweenSessions)
-- [Set Device Tracking Disabled](#SetDeviceTrackingDisabled)
--  [StopTracking](#StopTracking)
--  [Wait For Customer User ID](#WaitForCustomerUserId)
-- [SetPreinstallAttribution](#SetPreinstallAttribution)
+    -  [SDK Initialization](#sdk_init)
+    -  [Tracking In-App Events](#adding_events)
+    -  [Get Conversion Data](#conversion_data)
+    -  [Tracking Deep Linking](#deep_linking)
+    - [Track App Uninstalls](#uninstall_tracking)
+    - [Set Customer User ID](#SetCustomerUserId)
+    - [Set Debug Log](#SetDebugLog)
+    - [Get AppsFlyer UID](#GetAppsFlyerUID)
+    - [Set Min Time Between Sessions](#SetMinTimeBetweenSessions)
+    - [Set Device Tracking Disabled](#SetDeviceTrackingDisabled)
+    -  [StopTracking](#StopTracking)
+    -  [Wait For Customer User ID](#WaitForCustomerUserId)
+    - [SetPreinstallAttribution](#SetPreinstallAttribution)
 - [Sample App](#sample_app)
 
 
@@ -76,10 +76,10 @@ https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
 
 #### 2.1) Adding the Plugin to your Project
 
-1. Go to Project > Add NuGet Packages...
-2. Select the `AppsFlyerXamarinBindingAndroid`
-3. Select under version -  `1.4.0`
-4. Click `Add Package`
+    1. Go to Project > Add NuGet Packages...
+    2. Select the `AppsFlyerXamarinBindingAndroid`
+    3. Select under version -  `1.4.0`
+    4. Click `Add Package`
 
 
 
@@ -87,11 +87,11 @@ https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
 
 To Embed SDK into your Application Manually:
 
-1. Copy AppsFlyerXamarinBindingAndroid.dll into your project.
-2. On Xamarin Studio go to References and click on Edit References.
-3. Go to .Net Assembly tab and click on Browse… button
-4. Locate AppsFlyerXamarinBindingAndroid.dll and chose it.
-5. Locate GooglePlayServicesLib.dll and add it as well (for advertising Id)
+    1. Copy AppsFlyerXamarinBindingAndroid.dll into your project.
+    2. On Xamarin Studio go to References and click on Edit References.
+    3. Go to .Net Assembly tab and click on Browse… button
+    4. Locate AppsFlyerXamarinBindingAndroid.dll and chose it.
+    5. Locate GooglePlayServicesLib.dll and add it as well (for advertising Id)
 
 
 #### 2.2)  Setting the Required Permissions
