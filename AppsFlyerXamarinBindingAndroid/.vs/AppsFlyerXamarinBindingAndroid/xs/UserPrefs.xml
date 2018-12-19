@@ -1,23 +1,11 @@
 ﻿<Properties StartupConfiguration="{B4D1BF13-0A4B-4B46-AB88-1C563819C1E7}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Properties/AssemblyInfo.cs">
     <Files>
-      <File FileName="Properties/AssemblyInfo.cs" Line="28" Column="1" />
+      <File FileName="packages.config" Line="4" Column="12" />
+      <File FileName="Properties/AssemblyInfo.cs" Line="24" Column="14" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="AppsFlyerXamarinBindingAndroid" expanded="True">
-            <Node name="AppsFlyerXamarinBindingAndroid" expanded="True">
-              <Node name="Properties" expanded="True">
-                <Node name="AssemblyInfo.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -82,8 +82,9 @@
       <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
     </Reference>
     <Reference Include="AppsFlyerXamarinBindingAndroid">
-      <HintPath>..\AppsFlyerXamarinBindingAndroid.dll</HintPath>
+      <HintPath>packages\AppsFlyerXamarinBindingAndroid.1.4.0\lib\monoandroid80\AppsFlyerXamarinBindingAndroid.dll</HintPath>
     </Reference>
+    <Reference Include="Java.Interop" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
