@@ -305,7 +305,7 @@ android:exported="true">
 </receiver>
 ```
 
-5. Add the following method call before "startTracking":
+4. Add the following method call before "startTracking":
 
 
 ```c#
