@@ -235,7 +235,36 @@ AppsFlyerConversionDelegate.cs can be found in the sample app provided with this
 
 ## Tracking Deep Linking
 
-Information on Deep Linking can be found here: 
+1. Add relevant intent filters to the activity.
+
+    a. You can read more about intent filters for deep linking here: https://developer.android.com/training/app-links/deep-linking.html
+    
+    b. You can read more on implementing Android Manifest by adding custom attributed in Xamarin here: https://docs.microsoft.com/en-us/xamarin/android/platform/android-manifest
+    
+Example intent filter attribute implementation:
+```c#
+[Activity(Label = "appsflyerxamarinandroidsampleapp", MainLauncher = true, Icon = "@mipmap/icon")]
+[IntentFilter(new[] { Android.Content.Intent.ActionView },
+                   AutoVerify = true,
+                   Categories = new[]
+                   {
+                        Android.Content.Intent.CategoryDefault,
+                        Android.Content.Intent.CategoryBrowsable
+                   },
+                   DataScheme = "https",
+                   DataHost = "domain.com",
+                   DataPathPrefix = "/path/")]
+public class MainActivity : Activity
+{...}
+```
+
+2. Add the following code in the Activity onCreate method:
+
+```c#
+AppsFlyerLib.Instance.SendDeepLinkData(this);
+```
+
+More information on Deep Linking on Android can be found here: 
 
 https://support.appsflyer.com/hc/en-us/articles/207032126-AppsFlyer-SDK-Integration-Android#5-tracking-deep-linking
 
@@ -276,14 +305,14 @@ android:exported="true">
 </receiver>
 ```
 
-3. Add the following method call before "startTracking":
+4. Add the following method call before "startTracking":
 
 
 ```c#
 AppsFlyerLib.Instance.SetGCMProjectNumber(this.Application, "SenderID");
 ```
 
-4. Add your Server Key to AppsFlyer's dashboard.
+5. Add your Server Key to AppsFlyer's dashboard.
 
 
 
