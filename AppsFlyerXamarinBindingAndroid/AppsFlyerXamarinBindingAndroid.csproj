@@ -12,17 +12,17 @@
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
-    <PackageVersion>1.50.0</PackageVersion>
+    <PackageVersion>5.0.2</PackageVersion>
     <Authors>AppsFlyer</Authors>
     <Owners>AppsFlyer</Owners>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding/</PackageProjectUrl>
-    <PackageReleaseNotes>Android SDK v4.8.18</PackageReleaseNotes>
+    <PackageReleaseNotes>Android SDK v5.0.2</PackageReleaseNotes>
     <Title>AppsFlyerXamarinBindingAndroid</Title>
     <Description>AppsFlyer Xamarin Binding for Android</Description>
+    <PackageLicenseUrl>https://www.appsflyer.com/terms-of-use/</PackageLicenseUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

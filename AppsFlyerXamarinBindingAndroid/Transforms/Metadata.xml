@@ -7,4 +7,43 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+
+<add-node path="/api/package[@name='com.appsflyer']">
+    <class abstract="false" deprecated="not deprecated" extends="com.appsflyer.OneLinkHttpTask" extends-generic-aware="com.appsflyer.OneLinkHttpTask" jni-extends="Lcom/appsflyer/OneLinkHttpTask;" final="false" name="CreateOneLinkHttpTask" static="false" visibility="public" jni-signature="Lcom/appsflyer/CreateOneLinkHttpTask;">
+        <constructor deprecated="not deprecated" final="false" name="CreateOneLinkHttpTask" jni-signature="(Ljava/lang/String;Ljava/util/Map;Lcom/appsflyer/AppsFlyerLibCore;Landroid/content/Context;Z)V" bridge="false" static="false" type="com.appsflyer.CreateOneLinkHttpTask" synthetic="false" visibility="public">
+            <parameter name="oneLinkId" type="java.lang.String" jni-type="Ljava/lang/String;">
+            </parameter>
+            <parameter name="data" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;" jni-type="Ljava/util/Map&lt;Ljava/lang/String;Ljava/lang/String;&gt;;">
+            </parameter>
+            <parameter name="afLib" type="com.appsflyer.AppsFlyerLibCore" jni-type="Lcom/appsflyer/AppsFlyerLibCore;">
+            </parameter>
+            <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;">
+            </parameter>
+            <parameter name="isTrackingStopped" type="boolean" jni-type="Z">
+            </parameter>
+        </constructor>
+        <method abstract="false" deprecated="not deprecated" final="false" name="getOneLinkUrl" jni-signature="()Ljava/lang/String;" bridge="false" native="false" return="java.lang.String" jni-return="Ljava/lang/String;" static="false" synchronized="false" synthetic="false" visibility="protected">
+        </method>
+        <method abstract="false" deprecated="not deprecated" final="false" name="handleResponse" jni-signature="(Ljava/lang/String;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="protected">
+            <parameter name="content" type="java.lang.String" jni-type="Ljava/lang/String;">
+            </parameter>
+        </method>
+        <method abstract="false" deprecated="not deprecated" final="false" name="initRequest" jni-signature="(Ljavax/net/ssl/HttpsURLConnection;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="protected">
+            <parameter name="conn" type="javax.net.ssl.HttpsURLConnection" jni-type="Ljavax/net/ssl/HttpsURLConnection;">
+            </parameter>
+            <exception name="IOException" type="java.io.IOException">
+            </exception>
+            <exception name="JSONException" type="org.json.JSONException">
+            </exception>
+        </method>
+        <method abstract="false" deprecated="not deprecated" final="false" name="onErrorResponse" jni-signature="()V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="protected">
+        </method>
+        <method abstract="false" deprecated="not deprecated" final="false" name="setListener" jni-signature="(Lcom/appsflyer/CreateOneLinkHttpTask$ResponseListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+            <parameter name="responseListener" type="com.appsflyer.CreateOneLinkHttpTask.ResponseListener" jni-type="Lcom/appsflyer/CreateOneLinkHttpTask$ResponseListener;">
+            </parameter>
+        </method>
+    </class>
+</add-node>
+    
+    
 </metadata>

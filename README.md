@@ -5,8 +5,8 @@
 
 
 Xamarin Binding integration guide For Android
-AppsFlyer Xamarin Binding version `1.50.0`
-Built with AppsFlyer Android SDK `v4.8.18`
+AppsFlyer Xamarin Binding version `5.0.2`
+Built with AppsFlyer Android SDK `v5.0.2`
 
 
 
