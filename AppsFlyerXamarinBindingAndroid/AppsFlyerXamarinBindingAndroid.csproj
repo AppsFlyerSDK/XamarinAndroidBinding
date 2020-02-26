@@ -24,7 +24,7 @@
     <PackageLicenseUrl>https://www.appsflyer.com/terms-of-use/</PackageLicenseUrl>
     <Owners>AppsFlyer</Owners>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
-    <PackageReleaseNotes>Included Gogole Play Install Referrer API library</PackageReleaseNotes>
+    <PackageReleaseNotes>Google Play Install Referrer API library support</PackageReleaseNotes>
     <Title>AppsFlyerXamarinBindingAndroid</Title>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
