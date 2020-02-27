@@ -169,7 +169,7 @@ Go to your MainActivity.cs and add:
 2) Add the following code to the OnCreate() method:
 
 ```c#
-AppsFlyerLib.Instance.Init("DEV_KEY", new AppsFlyerConversionDelegate(this), this.Application);
+AppsFlyerLib.Instance.Init("YOUR_DEV_KEY", new AppsFlyerConversionDelegate(this), this.Application);
 AppsFlyerLib.Instance.StartTracking(this.Application, "YOUR_DEV_KEY");
 
 /* AppsFlyerLib.Instance.SetDebugLog(true); */
