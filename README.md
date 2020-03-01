@@ -105,7 +105,9 @@ The AndroidManifest.xml should include the following permissions:
 ```
 
 
-#### 2.3) Setting the BroadcastReceiver in AndroidManifest.xml
+#### 2.3) Setting the Broadcast Receiver in AndroidManifest.xml
+
+##### 2.3.1 Using Broadcast Receiver (Note: this method of passing the referrer is [deprecated by Google since March 1, 2020](https://android-developers.googleblog.com/2019/11/still-using-installbroadcast-switch-to.html). Please see instructions on how to include install_referrer library below )
 
 *_The following two options are available for implementing the install referrer broadcast receiver:_*
 
@@ -131,6 +133,15 @@ If you already have a receiver listening on the INSTALL_REFERRER, AppsFlyer prov
 </intent-filter>
 </receiver>
 ```
+
+##### 2.3.2 Using install_referrer library
+
+1. Download aar of the desired version of [com.android.installreferrer](https://mvnrepository.com/artifact/com.android.installreferrer) library from Maven
+2. Add it to your Android Xamarin project, for example under the lib folder
+3. Set Build Action to AndroidAarLibrary
+4. Make sure you can see relevant ItemGroup attribute in the csproj file
+
+![image](https://user-images.githubusercontent.com/50541317/74601819-f9925280-50aa-11ea-9d92-0ff4489bb5d0.png)
 
 ### <a id="api-methods">
 
@@ -158,6 +169,7 @@ Go to your MainActivity.cs and add:
 2) Add the following code to the OnCreate() method:
 
 ```c#
+AppsFlyerLib.Instance.Init("YOUR_DEV_KEY", new AppsFlyerConversionDelegate(this), this.Application);
 AppsFlyerLib.Instance.StartTracking(this.Application, "YOUR_DEV_KEY");
 
 /* AppsFlyerLib.Instance.SetDebugLog(true); */
