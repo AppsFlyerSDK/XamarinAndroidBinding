@@ -47,9 +47,11 @@ namespace XamarinSample
             oaoaTextView = FindViewById<AppCompatTextView>(Resource.Id.oaoa_text_view);
 
             AppsFlyerLib.Instance.SetDebugLog(true);
+            AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose);
+            AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", new AppsFlyerConversionDelegate(this), Application);
             AppsFlyerLib.Instance.SetAppInviteOneLink("E2bM"); // Replace with OneLink ID from your AppsFlyer account
-            AppsFlyerLib.Instance.StartTracking(this.Application, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
-            AppsFlyerLib.Instance.RegisterConversionListener(this, new AppsFlyerConversionDelegate(this));
+            AppsFlyerLib.Instance.SetSharingFilter(new string[]{"test", "partner_int"});
+            AppsFlyerLib.Instance.StartTracking(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
         }
 
         private void PurchaseButtonClick(object sender, EventArgs eventArgs)
