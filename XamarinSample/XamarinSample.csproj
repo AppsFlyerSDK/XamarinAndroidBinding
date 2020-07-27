@@ -122,15 +122,12 @@
     <PackageReference Include="Xamarin.Google.Android.Material">
       <Version>1.0.0.1</Version>
     </PackageReference>
+    <PackageReference Include="AppsFlyerXamarinBindingAndroid">
+      <Version>5.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidAarLibrary Include="libs\installreferrer-2.1.aar" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AppsFlyerXamarinBindingAndroid\AppsFlyerXamarinBindingAndroid.csproj">
-      <Project>{4A655B5E-EA10-4413-B76D-AE49393F7C60}</Project>
-      <Name>AppsFlyerXamarinBindingAndroid</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
