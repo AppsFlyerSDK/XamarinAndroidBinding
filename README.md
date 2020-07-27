@@ -286,7 +286,7 @@ To complete this process fully and correctly, you must [read here](https://suppo
 
 
 
-1. Add the Xamarin Google Play Services - GCM Nugget to your project.
+1. Add the [Xamarin Google Play Services - GCM Nugget](https://docs.microsoft.com/en-us/xamarin/android/data-cloud/google-messaging/remote-notifications-with-fcm) to your project.
 
 2. Add the following permissions to your AndroidManifest.xml file:
 
