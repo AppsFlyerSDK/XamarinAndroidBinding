@@ -46,8 +46,7 @@ namespace XamarinSample
             gcdTextView = FindViewById<AppCompatTextView>(Resource.Id.gcd_text_view);
             oaoaTextView = FindViewById<AppCompatTextView>(Resource.Id.oaoa_text_view);
 
-            AppsFlyerLib.Instance.SetDebugLog(true);
-            AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose);
+            AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
             AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", new AppsFlyerConversionDelegate(this), Application);
             AppsFlyerLib.Instance.SetAppInviteOneLink("E2bM"); // Replace with OneLink ID from your AppsFlyer account
             AppsFlyerLib.Instance.SetSharingFilter(new string[]{"test", "partner_int"});
