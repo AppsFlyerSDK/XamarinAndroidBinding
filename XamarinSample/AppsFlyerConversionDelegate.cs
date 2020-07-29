@@ -58,7 +58,10 @@ namespace XamarinSample
             string message = "OnConversionDataSuccess:\n";
             foreach (var kvp in p0)
             {
-                message = message + kvp.Key.ToString() + " = " + kvp.Value.ToString() + "\n";
+                if (kvp.Value != null)
+                {
+                    message = message + kvp.Key.ToString() + " = " + kvp.Value.ToString() + "\n";
+                }
             }
             message = message + "Timestamp:" + DateTime.Now;
             Console.WriteLine(message);
