@@ -286,45 +286,29 @@ To complete this process fully and correctly, you must [read here](https://suppo
 
 
 
-1. Add the [Xamarin Google Play Services - GCM Nugget](https://docs.microsoft.com/en-us/xamarin/android/data-cloud/google-messaging/remote-notifications-with-fcm) to your project.
+1. Add the [Xamarin Google Play Services - FCM Nugget](https://docs.microsoft.com/en-us/xamarin/android/data-cloud/google-messaging/remote-notifications-with-fcm) to your project as instructed in the oficial Xamarin documentation.
 
-2. Add the following permissions to your AndroidManifest.xml file:
-
-```xml
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-<permission android:name="your.app.name.permission.C2D_MESSAGE"
-android:protectionLevel="signature" />
-<uses-permission android:name="your.app.name.permission.C2D_MESSAGE" />
-<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-```
+2. Make sure to add google-services.json into your project
 
 3. Add the following receiver to your AndroidManifest.xml file:
 
 ```xml
-<receiver
-android:name="com.google.android.gms.gcm.GcmReceiver"
-android:exported="true">
-<intent-filter>
-<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-</intent-filter>
-</receiver>
+<application
+   <!-- ... -->
+      <service
+        android:name="com.appsflyer.FirebaseMessagingServiceListener">
+        <intent-filter>
+          <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+      </service>
+   <!-- ... -->
+</application>
 ```
+The appsflyer.FirebaseMessagingServiceListener extends Firebase's <>FirebaseMessagingService class, which is used in order to receive Firebase's Device Token.
 
-4. Add the following method call before "startTracking":
+4. Add your Server Key to AppsFlyer's dashboard.
 
-
-```c#
-AppsFlyerLib.Instance.SetGCMProjectNumber(this.Application, "SenderID");
-```
-
-5. Add your Server Key to AppsFlyer's dashboard.
-
-
-
-For more information regarding how to obtain the Server Key and SenderID, please review this article : https://support.appsflyer.com/hc/en-us/articles/208004986-Android-Uninstall-Tracking
-
-
+For more information regarding how to obtain the Server Key, please review this article : https://support.appsflyer.com/hc/en-us/articles/208004986-Android-Uninstall-Tracking
 
 ### <a id="SetCustomerUserId">
 
