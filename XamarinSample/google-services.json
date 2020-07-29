@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "930089372791",
+    "firebase_url": "https://sdktest-ae626.firebaseio.com",
+    "project_id": "sdktest-ae626",
+    "storage_bucket": "sdktest-ae626.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930089372791:android:924c9f253f164f6cfeca72",
+        "android_client_info": {
+          "package_name": "com.appsflyer.xamarinsample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "930089372791-90r4l11m3107s9j24jgupmrrb1s38m2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5LaVCcNNdzDN0CqEWrRwIMGzl0snIBKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "930089372791-90r4l11m3107s9j24jgupmrrb1s38m2q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "930089372791-eunkhsr28k19t17httstrofj6hlg0acr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sokoloff06.sdktest1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930089372791:android:9194f95889ffe9c2",
+        "android_client_info": {
+          "package_name": "com.sokoloff06.sdktest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "930089372791-inkg3kf3q6tivnmg9g1q0rps1m19fe7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sokoloff06.sdktest",
+            "certificate_hash": "29ad4fd66a48a69b139dca5ab05862eb54f5680b"
+          }
+        },
+        {
+          "client_id": "930089372791-90r4l11m3107s9j24jgupmrrb1s38m2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5LaVCcNNdzDN0CqEWrRwIMGzl0snIBKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "930089372791-90r4l11m3107s9j24jgupmrrb1s38m2q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "930089372791-eunkhsr28k19t17httstrofj6hlg0acr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sokoloff06.sdktest1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
