@@ -290,7 +290,11 @@ To complete this process fully and correctly, you must [read here](https://suppo
 
 2. Make sure to add google-services.json into your project
 
-3. Add the following receiver to your AndroidManifest.xml file:
+3.1 Developers who first use Firebase for AppsFlyer uninstall measurement
+
+If a developer integrates FCM for the sole purpose of measurement uninstalls with AppsFlyer, they can make use of the appsFlyer.FirebaseMessagingServiceListener service, included in our SDK. If you already use Firebase Messaging in your app, skip to step 3.2
+
+Add the following receiver to your AndroidManifest.xml file:
 
 ```xml
 <application
@@ -305,6 +309,32 @@ To complete this process fully and correctly, you must [read here](https://suppo
 </application>
 ```
 The appsflyer.FirebaseMessagingServiceListener extends Firebase's <>FirebaseMessagingService class, which is used in order to receive Firebase's Device Token.
+
+3.2 Developers who already use Firebase for other third-party platforms
+
+If a developer intends to use FCM with more than one platform / SDK, they would need to implement a logic that collects the Device Token and passes it to all relevant platforms. This is done by extending a new instance of the FirebaseMessagingService (similar to the service the AppsFlyer SDK extends):
+
+```c#
+using System;
+using Android.App;
+using Com.Appsflyer;
+using Firebase.Messaging;
+
+
+[Service]
+[IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+public class MyNewFirebaseManager : FirebaseMessagingService
+{
+    public override void OnNewToken(string newToken)
+    {
+        base.OnNewToken(newToken);
+        // Sending new token to AppsFlyer
+        Console.WriteLine("MyNewFirebaseManager onNewToken");
+        AppsFlyerLib.Instance.UpdateServerUninstallToken(ApplicationContext, newToken);
+        // the rest of the code that makes use of the token goes in this method as well
+    }
+}
+```
 
 4. Add your Server Key to AppsFlyer's dashboard.
 
