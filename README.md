@@ -411,7 +411,7 @@ AppsFlyerLib.Instance.SetPreinstallAttribution(string mediaSource, string campai
 ### <a id="sample_app">
 ## Sample App 
 Sample app can be found here:
-https://github.com/AppsFlyerSDK/XamarinAndroidBinding/tree/master/appsflyerxamarinandroidsampleapp  
+https://github.com/AppsFlyerSDK/XamarinAndroidBinding/tree/master/XamarinSample
 
 
 ---
