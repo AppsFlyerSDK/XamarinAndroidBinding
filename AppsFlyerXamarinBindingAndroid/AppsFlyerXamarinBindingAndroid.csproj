@@ -18,16 +18,13 @@
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
-    <PackageVersion>5.4.1</PackageVersion>
+    <PackageVersion>6.1.0.1</PackageVersion>
     <Authors>AppsFlyer</Authors>
     <Description>Xamaring binding for AppsFlyer Android SDK</Description>
     <PackageLicenseUrl>https://www.appsflyer.com/terms-of-use/</PackageLicenseUrl>
     <Owners>AppsFlyer</Owners>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
-    <PackageReleaseNotes>Android SDK 5.4.1
-New APIs:
-- setSharingFilter
-- setSharingFilterForAllNetworks</PackageReleaseNotes>
+    <PackageReleaseNotes>Android SDK 6.1.0</PackageReleaseNotes>
     <Title>AppsFlyerXamarinBindingAndroid</Title>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>

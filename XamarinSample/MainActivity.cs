@@ -8,6 +8,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Com.Appsflyer;
+using Com.Appsflyer.Deeplink;
 
 namespace XamarinSample
 {
@@ -51,8 +52,18 @@ namespace XamarinSample
             AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", new AppsFlyerConversionDelegate(this), Application);
             AppsFlyerLib.Instance.SetAppInviteOneLink("E2bM"); // Replace with OneLink ID from your AppsFlyer account
             AppsFlyerLib.Instance.SetSharingFilter(new string[]{"test", "partner_int"});
-            AppsFlyerLib.Instance.StartTracking(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
+            AppsFlyerLib.Instance.SubscribeForDeepLink(new MyDeepLinkListener());
+            AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
         }
+
+        private class MyDeepLinkListener : Java.Lang.Object, IDeepLinkListener
+        {
+            public void OnDeepLinking(DeepLinkResult deepLinkResult)
+            {
+                Console.WriteLine(deepLinkResult.ToString());
+            }
+        }
+
 
         private void PurchaseButtonClick(object sender, EventArgs eventArgs)
         {
@@ -60,7 +71,7 @@ namespace XamarinSample
             eventValues.Add(AFInAppEventParameterName.Price, 2);
             eventValues.Add(AFInAppEventParameterName.Currency, "USD");
             eventValues.Add(AFInAppEventParameterName.Quantity, "1");
-            AppsFlyerLib.Instance.TrackEvent(this.BaseContext, AFInAppEventType.Purchase, eventValues);
+            AppsFlyerLib.Instance.LogEvent(this.BaseContext, AFInAppEventType.Purchase, eventValues);
         }
 
         private void FabOnClick(object sender, EventArgs eventArgs)
