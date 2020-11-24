@@ -8,6 +8,9 @@ Xamarin Binding integration guide For Android
 AppsFlyer Xamarin Binding version `v6.1.0.1`
 Built with AppsFlyer Android SDK `v6.1.0`
 
+## <a id="v6-breaking-changes"> ❗ v6 Breaking Changes
+
+We have renamed some of the APIs. For more details, please check out our [Help Center](https://support.appsflyer.com/hc/en-us/articles/360011571778#4-change-apis)
 
 
 # 1. Overview
