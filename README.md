@@ -5,8 +5,8 @@
 
 
 Xamarin Binding integration guide For Android
-AppsFlyer Xamarin Binding version `v6.1.0.1`
-Built with AppsFlyer Android SDK `v6.1.0`
+AppsFlyer Xamarin Binding version `v6.1.3.0`
+Built with AppsFlyer Android SDK `v6.1.3`
 
 ## <a id="v6-breaking-changes"> ❗ v6 Breaking Changes
 
@@ -15,14 +15,14 @@ We have renamed some of the APIs. For more details, please check out our [Help C
 
 # 1. Overview
 
-AppsFlyer SDK provides app installation and event tracking functionality. We have developed an SDK that is highly robust (7+ billion SDK installations to date), secure, lightweight and very simple to embed.
+AppsFlyer SDK provides app installation and event logging functionality. We have developed an SDK that is highly robust (7+ billion SDK installations to date), secure, lightweight and very simple to embed.
 
 
 
-You can track installs, updates and sessions and also track additional in-app events beyond app installs (including in-app purchases, game levels, etc.) to evaluate ROI and user engagement levels.
+You can measure installs, updates and sessions and also log additional in-app events beyond app installs (including in-app purchases, game levels, etc.) to evaluate ROI and user engagement levels.
 
 ---
-AppsFlyer Xamarin binding provides application installation and events tracking functionality.
+AppsFlyer Xamarin binding provides application installation and events logging functionality.
 
 The API for the binding coincides with the native Android API, which can be found [here](https://support.appsflyer.com/hc/en-us/articles/207032126-AppsFlyer-SDK-Integration-Android).
 
@@ -36,16 +36,16 @@ The API for the binding coincides with the native Android API, which can be foun
 - [Quick Start](#quickStart)
 - [API Methods](#api-methods)
     -  [SDK Initialization](#sdk_init)
-    -  [Tracking In-App Events](#adding_events)
+    -  [Logging In-App Events](#adding_events)
     -  [Get Conversion Data](#conversion_data)
-    -  [Tracking Deep Linking](#deep_linking)
-    - [Track App Uninstalls](#uninstall_tracking)
+    -  [Deep Linking](#deep_linking)
+    - [Measure App Uninstalls](#uninstall_measurement)
     - [Set Customer User ID](#SetCustomerUserId)
     - [Set Debug Log](#SetDebugLog)
     - [Get AppsFlyer UID](#GetAppsFlyerUID)
     - [Set Min Time Between Sessions](#SetMinTimeBetweenSessions)
-    - [Set Device Tracking Disabled](#SetDeviceTrackingDisabled)
-    -  [StopTracking](#StopTracking)
+    - [Anonymize User](#AnonymizeUser)
+    -  [Stop](#Stop)
     -  [Wait For Customer User ID](#WaitForCustomerUserId)
     - [SetPreinstallAttribution](#SetPreinstallAttribution)
 - [Sample App](#sample_app)
@@ -79,7 +79,7 @@ https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
 
     1. Go to Project > Add NuGet Packages...
     2. Select the `AppsFlyerXamarinBindingAndroid`
-    3. Select under version -  `6.1.0.1`
+    3. Select under version -  `6.1.3.0`
     4. Click `Add Package`
 
 
@@ -173,7 +173,7 @@ Go to your MainActivity.cs and add:
 
 ```c#
 AppsFlyerLib.Instance.Init("YOUR_DEV_KEY", new AppsFlyerConversionDelegate(this), this.Application);
-AppsFlyerLib.Instance.StartTracking(this.Application, "YOUR_DEV_KEY");
+AppsFlyerLib.Instance.Start(this.Application, "YOUR_DEV_KEY");
 
 /* AppsFlyerLib.Instance.SetDebugLog(true); */
 ```
@@ -182,9 +182,9 @@ AppsFlyerLib.Instance.StartTracking(this.Application, "YOUR_DEV_KEY");
 
 ### <a id="adding_events">
 
-## Tracking In-App Events
+## Logging In-App Events
 
-Tracking in-app events is performed by calling `TrackEvent` with event name and value parameters. See [In-App Events](https://support.appsflyer.com/hc/en-us/articles/115005544169-AppsFlyer-Rich-In-App-Events-Android-and-iOS) documentation for more details.
+Logging in-app events is performed by calling `LogEvent` with event name and value parameters. See [In-App Events](https://support.appsflyer.com/hc/en-us/articles/115005544169-AppsFlyer-Rich-In-App-Events-Android-and-iOS) documentation for more details.
 
 Purchase Event Example:
 ```c#
@@ -192,7 +192,7 @@ Dictionary<string, Java.Lang.Object> eventValues = new  Dictionary<string, Java.
 eventValues.Add(AFInAppEventParameterName.Price , 2);  
 eventValues.Add(AFInAppEventParameterName.Currency, "USD");  
 eventValues.Add(AFInAppEventParameterName.Quantity, "1");  
-AppsFlyerLib.Instance.TrackEvent(this.BaseContext, AFInAppEventType.Purchase , eventValues);
+AppsFlyerLib.Instance.LogEvent(this.BaseContext, AFInAppEventType.Purchase , eventValues);
 ```
 
 
@@ -248,7 +248,7 @@ AppsFlyerConversionDelegate.cs can be found in the sample app provided with this
 
 ### <a id="deep_linking">
 
-## Tracking Deep Linking
+## Deep Linking
 
 1. Add relevant intent filters to the activity.
 
@@ -279,11 +279,11 @@ https://support.appsflyer.com/hc/en-us/articles/207032126-AppsFlyer-SDK-Integrat
 
 
 
-### <a id="uninstall_tracking">
+### <a id="uninstall_measurement">
 
-## Uninstall tracking
+## Uninstall measurement
 
-AppsFlyer enables you to track app uninstalls.
+AppsFlyer enables you to measure app uninstalls.
 
 To complete this process fully and correctly, you must [read here](https://support.appsflyer.com/hc/en-us/articles/208004986).
 
@@ -376,31 +376,31 @@ For AppsFlyer to count two separate sessions, the default time between each sess
 AppsFlyerLib.Instance.SetMinTimeBetweenSessions(int time);
 ```
 
-### <a id="SetDeviceTrackingDisabled">
+### <a id="AnonymizeUser">
 
-## Set Device Tracking Disabled
+## AnonymizeUser
 
 ```c#
-AppsFlyerLib.Instance.SetDeviceTrackingDisabled(true);
+AppsFlyerLib.Instance.AnonymizeUser(true);
 ```
 
-### <a id="StopTracking">
+### <a id="Stop">
 
-## Stop Tracking
-In some extreme cases you might want to shut down all SDK tracking due to legal and privacy compliance. This can be achieved with the isStopTracking API. Once this API is invoked, our SDK will no longer communicate with our servers and stop functioning.
+## Stop 
+In some extreme cases you might want to shut down all SDK attribution functions due to legal and privacy compliance. This can be achieved with the Stop() API. Once this API is invoked, our SDK will no longer communicate with our servers and stop functioning.
 
 ```c#
-AppsFlyerLib.Instance.StopTracking(true, this.BaseContext);
+AppsFlyerLib.Instance.Stop(true, this.BaseContext);
 ```
 
 ### <a id="WaitForCustomerUserId">
 
 ## Wait For Customer User ID
-It is possible to delay the SDK Initialization until the customerUserID is set. This feature makes sure that the SDK doesn't begin functioning until the customerUserID is provided. If this API is used, all in-app events and any other SDK API calls are discarded, until the customerUserID is provided and tracked.
+It is possible to delay the SDK Initialization until the customerUserID is set. This feature makes sure that the SDK doesn't begin functioning until the customerUserID is provided. If this API is used, all in-app events and any other SDK API calls are discarded, until the customerUserID is provided and logged.
 
 ```c#
 AppsFlyerLib.Instance.WaitForCustomerUserId(true);
-AppsFlyerLib.Instance.SetCustomerIdAndTrack("custom_id", this.BaseContext);
+AppsFlyerLib.Instance.SetCustomerIdAndLogSession("custom_id", this.BaseContext);
 ```
 ### <a id="SetPreinstallAttribution">
 
