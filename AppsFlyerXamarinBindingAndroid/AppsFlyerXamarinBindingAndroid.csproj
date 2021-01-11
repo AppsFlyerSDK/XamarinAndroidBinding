@@ -18,13 +18,13 @@
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
-    <PackageVersion>6.1.0.1</PackageVersion>
+    <PackageVersion>6.1.3.0</PackageVersion>
     <Authors>AppsFlyer</Authors>
     <Description>Xamaring binding for AppsFlyer Android SDK</Description>
     <PackageLicenseUrl>https://www.appsflyer.com/terms-of-use/</PackageLicenseUrl>
     <Owners>AppsFlyer</Owners>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
-    <PackageReleaseNotes>Android SDK 6.1.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Android SDK 6.1.3</PackageReleaseNotes>
     <Title>AppsFlyerXamarinBindingAndroid</Title>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
@@ -38,7 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
