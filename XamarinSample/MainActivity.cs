@@ -52,6 +52,11 @@ namespace XamarinSample
             AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", new AppsFlyerConversionDelegate(this), Application);
             AppsFlyerLib.Instance.SetAppInviteOneLink("E2bM"); // Replace with OneLink ID from your AppsFlyer account
             AppsFlyerLib.Instance.SetSharingFilter(new string[]{"test", "partner_int"});
+            Dictionary<string, Java.Lang.Object> partnerData =
+                new Dictionary<string, Java.Lang.Object>();
+            partnerData.Add("id", "test_id");
+            partnerData.Add("value", "test_value");
+            AppsFlyerLib.Instance.SetPartnerData("test_partner", partnerData);
             AppsFlyerLib.Instance.SubscribeForDeepLink(new MyDeepLinkListener());
             AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
         }
