@@ -18,13 +18,13 @@
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
-    <PackageVersion>6.2.0.0</PackageVersion>
+    <PackageVersion>6.3.1.0</PackageVersion>
     <Authors>AppsFlyer</Authors>
     <Description>Xamaring binding for AppsFlyer Android SDK</Description>
     <PackageLicenseUrl>https://www.appsflyer.com/terms-of-use/</PackageLicenseUrl>
     <Owners>AppsFlyer</Owners>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
-    <PackageReleaseNotes>Android SDK 6.2.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Android SDK 6.3.1</PackageReleaseNotes>
     <Title>AppsFlyerXamarinBindingAndroid</Title>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
@@ -62,14 +62,14 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedJar Include="Jars\AF-Android-SDK.jar" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="NuGet.Build.Packaging">
       <Version>0.2.2</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedJar Include="Jars\AF-Android-SDK.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
