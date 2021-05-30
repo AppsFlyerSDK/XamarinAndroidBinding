@@ -1,22 +1,16 @@
 ﻿using System;
 using Com.Appsflyer;
 using System.Collections.Generic;
-using Android.Support.V7.App;
 
 namespace XamarinSample
 {
-    public class AppsFlyerConversionDelegate : Java.Lang.Object, IAppsFlyerConversionListener
+    public class ConversionListener : Java.Lang.Object, IAppsFlyerConversionListener
     {
-        AppCompatActivity activity;
-        Android.Support.V7.Widget.AppCompatTextView oaoaTextView;
-        Android.Support.V7.Widget.AppCompatTextView gcdTextView;
+        MainActivity activity;
 
-        public AppsFlyerConversionDelegate(MainActivity activity)
+        public ConversionListener(MainActivity activity)
         {
-            this.oaoaTextView = activity.oaoaTextView;
-            this.gcdTextView = activity.gcdTextView;
             this.activity = activity;
-            Console.WriteLine("AppsFlyerConversionDelegate called");
         }
 
         public void OnAppOpenAttribution(IDictionary<string, string> p0)
@@ -29,7 +23,7 @@ namespace XamarinSample
             Console.WriteLine(message);
             activity.RunOnUiThread(() =>
             {
-                oaoaTextView.Text = message;
+                activity.udlTextView.Text = message;
             });
         }
 
@@ -39,7 +33,7 @@ namespace XamarinSample
             Console.WriteLine(message);
             activity.RunOnUiThread(() =>
             {
-                oaoaTextView.Text = message;
+                activity.udlTextView.Text = message;
             });
         }
 
@@ -49,7 +43,7 @@ namespace XamarinSample
             Console.WriteLine(message);
             activity.RunOnUiThread(() =>
             {
-                gcdTextView.Text = message;
+                activity.gcdTextView.Text = message;
             });
         }
 
@@ -64,10 +58,10 @@ namespace XamarinSample
                 }
             }
             message = message + "Timestamp:" + DateTime.Now;
-            Console.WriteLine(message);
             activity.RunOnUiThread(() =>
             {
-                gcdTextView.Text = message;
+                Console.WriteLine(message);
+                activity.gcdTextView.Text = message;
             });
         }
     }
