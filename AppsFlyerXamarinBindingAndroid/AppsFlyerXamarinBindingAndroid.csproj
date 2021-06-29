@@ -18,13 +18,13 @@
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
-    <PackageVersion>6.3.1.0</PackageVersion>
+    <PackageVersion>6.3.2.2</PackageVersion>
     <Authors>AppsFlyer</Authors>
     <Description>Xamaring binding for AppsFlyer Android SDK</Description>
     <PackageLicenseUrl>https://www.appsflyer.com/terms-of-use/</PackageLicenseUrl>
     <Owners>AppsFlyer</Owners>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
-    <PackageReleaseNotes>Android SDK 6.3.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Android SDK 6.3.2</PackageReleaseNotes>
     <Title>AppsFlyerXamarinBindingAndroid</Title>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>

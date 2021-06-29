@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
-using Android.Support.V7.App;
-using Android.Support.V7.Widget;
 using Android.Views;
+using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.Widget;
 using Com.Appsflyer;
+using Google.Android.Material.FloatingActionButton;
+using Google.Android.Material.Snackbar;
 
 namespace XamarinSample
 {
@@ -54,6 +55,7 @@ namespace XamarinSample
             AppsFlyerLib.Instance.SetPartnerData("test_partner", partnerData);
             AppsFlyerLib.Instance.RegisterConversionListener(this, cl);
             AppsFlyerLib.Instance.SubscribeForDeepLink(dl);
+            AppsFlyerLib.Instance.SetDisableAdvertisingIdentifiers(false);
             AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
         }
 
