@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.OS;
@@ -21,6 +21,19 @@ namespace XamarinSample
                         Android.Content.Intent.CategoryBrowsable
                    },
                    DataScheme = "sdktest")]
+    [IntentFilter(new[] { Android.Content.Intent.ActionView },
+                   Categories = new[]
+                   {
+                        Android.Content.Intent.CategoryDefault,
+                        Android.Content.Intent.CategoryBrowsable
+                   },
+                   DataScheme = "https",
+                   DataHosts = new[]
+                   {
+                       "sdk-test.onelink.me",
+                       "click.af-sup.com"
+                   }
+                   )]
     public class MainActivity : AppCompatActivity
     {
         public AppCompatTextView gcdTextView;
@@ -44,7 +57,8 @@ namespace XamarinSample
             ConversionListener cl = new ConversionListener(this);
             DeepLinkListener dl = new DeepLinkListener(this);
             AppsFlyerLib.Instance.AddPushNotificationDeepLinkPath(new string[] { "key1", "key2" });
-            AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
+            AppsFlyerLib.Instance.SetDebugLog(true);
+            //AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
             AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", cl, Application);
             AppsFlyerLib.Instance.SetAppInviteOneLink("E2bM"); // Replace with OneLink ID from your AppsFlyer account
             AppsFlyerLib.Instance.SetSharingFilter(new string[]{"test", "partner_int"});
@@ -129,4 +143,3 @@ namespace XamarinSample
         }
     }
 }
-
