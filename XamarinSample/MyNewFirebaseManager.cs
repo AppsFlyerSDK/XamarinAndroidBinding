@@ -4,7 +4,7 @@ using Com.Appsflyer;
 using Firebase.Messaging;
 
 
-[Service]
+[Service(Exported = true)]
 [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
 public class MyNewFirebaseManager : FirebaseMessagingService
 {
