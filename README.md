@@ -2,8 +2,8 @@
 
 
 Xamarin Binding integration guide For Android
-AppsFlyer Xamarin Binding version `v6.4.0.1`
-Built with AppsFlyer Android SDK `v6.4.0`
+AppsFlyer Xamarin Binding version `v6.5.4.0`
+Built with AppsFlyer Android SDK `v6.5.4`
 
 ## <a id="v6-breaking-changes"> ❗ v6 Breaking Changes
 
@@ -76,7 +76,7 @@ https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
 
     1. Go to Project > Add NuGet Packages...
     2. Select the `AppsFlyerXamarinBindingAndroid`
-    3. Select under version -  `6.4.0.1`
+    3. Select under version -  `6.5.4`
     4. Click `Add Package`
 
 
