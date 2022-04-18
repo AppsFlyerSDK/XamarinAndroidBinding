@@ -44,8 +44,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <IntermediateOutputPath></IntermediateOutputPath>
-    <AssemblyName></AssemblyName>
-    <PublicSign>false</PublicSign>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

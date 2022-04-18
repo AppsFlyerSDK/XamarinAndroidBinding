@@ -58,7 +58,7 @@ namespace XamarinSample
             DeepLinkListener dl = new DeepLinkListener(this);
             AppsFlyerLib.Instance.AddPushNotificationDeepLinkPath(new string[] { "key1", "key2" });
             AppsFlyerLib.Instance.SetDebugLog(true);
-            AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
+            //AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
             AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", cl, Application);
             AppsFlyerLib.Instance.SetAppInviteOneLink("E2bM"); // Replace with OneLink ID from your AppsFlyer account
             AppsFlyerLib.Instance.SetSharingFilter(new string[]{"test", "partner_int"});
