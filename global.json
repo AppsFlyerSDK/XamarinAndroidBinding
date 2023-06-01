@@ -1,0 +1,11 @@
+{
+  "sdk": 
+  {
+      "version": "6.0.400",
+      "rollForward": "latestMinor"
+  },
+  "msbuild-sdks": 
+  {
+      "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+  }
+}

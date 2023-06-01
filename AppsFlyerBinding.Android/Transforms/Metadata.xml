@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+
+    <!--OneLinkHttpTask abstract methods modifications below. See https://www.notion.so/appsflyerrnd/Xamarin-ec7731e461634d859785e69b51ab6623#82eedbb4a56742df926d3b5fba27a965 for more info-->
+    <attr path="/api/package[@name='com.appsflyer.internal']/class[@name='an']" name="obfuscated">false</attr>
+    <attr path="/api/package[@name='com.appsflyer.internal']/class[@name='an']/method[@name='AFInAppEventParameterName' and count(parameter)=1 and parameter[1][@type='javax.net.ssl.HttpsURLConnection']]" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.appsflyer.internal']/class[@name='an']/method[@name='valueOf' and count(parameter)=0]" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.appsflyer.internal']/class[@name='an']/method[@name='values' and count(parameter)=0]" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.appsflyer.internal']/class[@name='an']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="visibility">public</attr>
+    
+</metadata>

@@ -1,0 +1,43 @@
+<Project Sdk="Xamarin.Legacy.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>monoandroid11.0;net6.0-android</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <!-- Hide some warnings -->
+    <NoWarn>CS0108;CS0114;BG8700</NoWarn>
+    <RootNamespace>AppsFlyerXamarinBinding</RootNamespace>
+    <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
+    <AssemblyVersion>6.10.1.111</AssemblyVersion>
+    <FileVersion>6.10.1</FileVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>AppsFlyerXamarinBinding</PackageId>
+    <Title>AppsFlyer SDK for Xamarin Android</Title>
+    <Summary>C# binding for AppsFlyer official SDK</Summary>
+    <Description>C# binding for AppsFlyer official SDK</Description>
+    <Authors>AppsFlyer</Authors>
+    <Owners>AppsFlyer</Owners>
+    <Copyright>AppsFlyer</Copyright>
+    <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageVersion>6.10.2-beta3</PackageVersion>
+    <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TransformFile Include="Transforms\*.xml" />
+  </ItemGroup>
+
+</Project>
