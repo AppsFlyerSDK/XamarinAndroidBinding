@@ -13,7 +13,6 @@ public class MainActivity : Activity
         AppsFlyerLib.Instance.SetDebugLog(true);
         //AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
         AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", null, Application);
-        AppsFlyerLib.Instance.SetPluginInfo(new Com.Appsflyer.Internal.Platform_extension.PluginInfo(Com.Appsflyer.Internal.Platform_extension.Plugin.Xamarin, "1"));
         AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza");
         // Set our view from the "main" layout resource
         SetContentView(Resource.Layout.activity_main);

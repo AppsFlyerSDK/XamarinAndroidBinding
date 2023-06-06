@@ -1,8 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppsFlyerXamarinBindingAndroid", "AppsFlyerXamarinBindingAndroid\AppsFlyerXamarinBindingAndroid.csproj", "{4A655B5E-EA10-4413-B76D-AE49393F7C60}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.NuGet.Xamarin", "samples\Sample.NuGet.Xamarin\Sample.NuGet.Xamarin.csproj", "{F841D5AF-30A2-481D-AF63-1BC24773C9B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppsFlyerBinding.Android", "AppsFlyerBinding.Android\AppsFlyerBinding.Android.csproj", "{15E0F236-7E3D-443A-A03A-8C88CD690D11}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4A655B5E-EA10-4413-B76D-AE49393F7C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A655B5E-EA10-4413-B76D-AE49393F7C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A655B5E-EA10-4413-B76D-AE49393F7C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A655B5E-EA10-4413-B76D-AE49393F7C60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F841D5AF-30A2-481D-AF63-1BC24773C9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F841D5AF-30A2-481D-AF63-1BC24773C9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F841D5AF-30A2-481D-AF63-1BC24773C9B0}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -20,7 +20,7 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>6.11.0-beta9</PackageVersion>
+    <PackageVersion>6.11.0-beta10</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>

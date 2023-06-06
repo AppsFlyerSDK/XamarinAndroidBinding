@@ -13,6 +13,6 @@
     <None Remove="AppsFlyerXamarinBinding" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AppsFlyerXamarinBinding" Version="6.11.0-beta9" />
+    <PackageReference Include="AppsFlyerXamarinBinding" Version="6.11.0-beta10" />
   </ItemGroup>
 </Project>

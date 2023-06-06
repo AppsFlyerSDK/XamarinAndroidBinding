@@ -71,7 +71,6 @@ namespace XamarinSample
             AppsFlyerLib.Instance.RegisterConversionListener(this, cl);
             AppsFlyerLib.Instance.SubscribeForDeepLink(dl);
             AppsFlyerLib.Instance.SetDisableAdvertisingIdentifiers(false);
-            AppsFlyerLib.Instance.SetPluginInfo(new PluginInfo(Plugin.Xamarin, "1"));
             AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
             
         }
