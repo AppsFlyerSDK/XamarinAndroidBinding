@@ -6,8 +6,8 @@
     <NoWarn>CS0108;CS0114;BG8700</NoWarn>
     <RootNamespace>AppsFlyerXamarinBinding</RootNamespace>
     <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
-    <AssemblyVersion>6.10.1.111</AssemblyVersion>
-    <FileVersion>6.10.1</FileVersion>
+    <AssemblyVersion>6.11.0.0</AssemblyVersion>
+    <FileVersion>6.11.0</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
@@ -20,8 +20,11 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>6.10.2-beta3</PackageVersion>
-    <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
+    <PackageVersion>6.11.0-beta9</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AndroidClassParser>class-parse</AndroidClassParser>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,12 +35,16 @@
     <None Include="../README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <AndroidClassParser>class-parse</AndroidClassParser>
-  </PropertyGroup>
-
   <ItemGroup>
     <TransformFile Include="Transforms\*.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Xamarin.Kotlin.StdLib.Jdk7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.5.10" />
   </ItemGroup>
 
 </Project>

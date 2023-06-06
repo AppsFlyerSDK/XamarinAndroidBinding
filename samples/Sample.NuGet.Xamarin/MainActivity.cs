@@ -7,6 +7,7 @@ using Android.Views;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
 using Com.Appsflyer;
+using Com.Appsflyer.Internal.Platform_extension;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 
@@ -70,7 +71,9 @@ namespace XamarinSample
             AppsFlyerLib.Instance.RegisterConversionListener(this, cl);
             AppsFlyerLib.Instance.SubscribeForDeepLink(dl);
             AppsFlyerLib.Instance.SetDisableAdvertisingIdentifiers(false);
+            AppsFlyerLib.Instance.SetPluginInfo(new PluginInfo(Plugin.Xamarin, "1"));
             AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
+            
         }
 
         protected override void OnStop()
