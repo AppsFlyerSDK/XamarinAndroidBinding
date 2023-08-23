@@ -4,14 +4,15 @@
     <IsBindingProject>true</IsBindingProject>
     <!-- Hide some warnings -->
     <NoWarn>CS0108;CS0114;BG8700</NoWarn>
-    <RootNamespace>AppsFlyerXamarinBinding</RootNamespace>
+    <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
     <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
-    <AssemblyVersion>6.11.0.0</AssemblyVersion>
-    <FileVersion>6.11.0</FileVersion>
+    <AssemblyVersion>6.12.2</AssemblyVersion>
+    <FileVersion>6.12.2</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <PackageId>AppsFlyerXamarinBinding</PackageId>
+    <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
     <Title>AppsFlyer SDK for Xamarin Android</Title>
     <Summary>C# binding for AppsFlyer official SDK</Summary>
     <Description>C# binding for AppsFlyer official SDK</Description>
@@ -20,7 +21,7 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>6.11.0-beta10</PackageVersion>
+    <PackageVersion>6.12.2-beta.2</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>
