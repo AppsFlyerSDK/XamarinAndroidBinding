@@ -6,8 +6,9 @@
     <NoWarn>CS0108;CS0114;BG8700</NoWarn>
     <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
     <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
-    <AssemblyVersion>6.12.2</AssemblyVersion>
-    <FileVersion>6.12.2</FileVersion>
+    <!--x.x.x.build_ver, platform_extension includes this value -->
+    <AssemblyVersion>6.12.2.5</AssemblyVersion>
+    <FileVersion>6.12.2.5</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
   </PropertyGroup>
@@ -21,7 +22,7 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>6.12.2-beta.2</PackageVersion>
+    <PackageVersion>6.12.2</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>

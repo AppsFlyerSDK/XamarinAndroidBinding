@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Com.Appsflyer.Internal.Platform_extension;
 
@@ -19,9 +20,12 @@ namespace Com.Appsflyer
                 }
                 var assembly = typeof(AppsFlyerLib).GetTypeInfo().Assembly;
                 var assemblyName = new AssemblyName(assembly.FullName);
-                var version = assemblyName.Version.ToString();
-
-                Instance.SetPluginInfo(new PluginInfo(Plugin.Xamarin, version));
+                var version = assemblyName.Version;
+                var versionStr = version.ToString();
+                var extra = new Dictionary<string, string>();
+                extra["build"] = version.Build.ToString();
+                extra["revision"] = version.Revision.ToString();
+                Instance.SetPluginInfo(new PluginInfo(Plugin.Xamarin, versionStr, extra));
                 didSetPlugin = true;
                 return Instance;
             }
