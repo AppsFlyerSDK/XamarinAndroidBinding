@@ -71,6 +71,7 @@ namespace XamarinSample
             AppsFlyerLib.Instance.SubscribeForDeepLink(dl);
             AppsFlyerLib.Instance.SetDisableAdvertisingIdentifiers(false);
             AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
+            
         }
 
         protected override void OnStop()
@@ -117,7 +118,7 @@ namespace XamarinSample
     }
 
 
-    class OneLinkResponseListener : Java.Lang.Object, CreateOneLinkHttpTask.IResponseListener
+    class OneLinkResponseListener : Java.Lang.Object, Com.Appsflyer.Share.LinkGenerator.IResponseListener
     { 
         View view;
 

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+ 
+    <!--<attr path="/api/package[@name='com.appsflyer']/interface[@name='CreateOneLinkHttpTask.ResponseListener']/method[@name='onResponse']" name="argsType">CreateOneLinkHttpTask.TwoDSignNextManueverEventArgs</attr>-->
+    <!--<attr path="/api/package[@name='com.appsflyer.share']/interface[@name='CreateOneLinkHttpTask.ResponseListener']/method[@name='onResponse' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedName">onResponse</attr>-->
+	<!--<attr path="/api/package[@name='com.appsflyer.share']/interface[@name='CreateOneLinkHttpTask.ResponseListener']/method[@name='onResponseError' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedName">onResponseError</attr>-->
+
+    <attr path="/api/package[@name='com.appsflyer']/class[@name='AppsFlyerLib']/method[@name='getInstance' and count(parameter)=0]" name="managedName">__Instance</attr>
+
+    <remove-node path="/api/package[@name='com.appsflyer.internal']/class[starts-with(@name, 'AF')]" />
+    <remove-node path="/api/package[@name='com.appsflyer.internal']/interface[starts-with(@name, 'AF')]" />
+    <remove-node path="/api/package[@name='com.appsflyer']/class[@name='PurchaseHandler']" />
+    <remove-node path="/api/package[@name='com.appsflyer']/class[@name='AFKeystoreWrapper']" />
+
+
+
+</metadata>

@@ -1,0 +1,52 @@
+<Project Sdk="Xamarin.Legacy.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>monoandroid11.0;net6.0-android</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <!-- Hide some warnings -->
+    <NoWarn>CS0108;CS0114;BG8700</NoWarn>
+    <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
+    <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
+    <!--x.x.x.build_ver, platform_extension includes this value -->
+    <AssemblyVersion>6.12.2.6</AssemblyVersion>
+    <FileVersion>6.12.2</FileVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
+    <Title>AppsFlyer SDK for Xamarin Android</Title>
+    <Summary>C# binding for AppsFlyer official SDK</Summary>
+    <Description>C# binding for AppsFlyer official SDK</Description>
+    <Authors>AppsFlyer</Authors>
+    <Owners>AppsFlyer</Owners>
+    <Copyright>AppsFlyer</Copyright>
+    <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageVersion>6.12.2</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TransformFile Include="Transforms\*.xml" />
+  </ItemGroup>
+
+<!--  <ItemGroup>
+    <None Remove="Xamarin.Kotlin.StdLib.Jdk7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.5.10" />
+  </ItemGroup>-->
+
+</Project>
