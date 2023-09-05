@@ -12,8 +12,8 @@ public class MainActivity : Activity
         
         AppsFlyerLib.Instance.SetDebugLog(true);
         //AppsFlyerLib.Instance.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
-        AppsFlyerLib.Instance.Init("4UGrDF4vFvPLbHq5bXtCza", null, Application);
-        AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza");
+        AppsFlyerLib.Instance.Init("DEV_KEY", null, Application);
+        AppsFlyerLib.Instance.Start(this, "DEV_KEY");
         // Set our view from the "main" layout resource
         SetContentView(Resource.Layout.activity_main);
     }
