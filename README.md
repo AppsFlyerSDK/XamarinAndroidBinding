@@ -2,8 +2,8 @@
 
 
 Xamarin Binding integration guide For Android
-AppsFlyer Xamarin Binding version `v6.12.2`
-Built with AppsFlyer Android SDK `v6.12.2`
+AppsFlyer Xamarin Binding version `v6.13.0`
+Built with AppsFlyer Android SDK `v6.13.0`
 
 ## <a id="v6-breaking-changes"> ❗ v6 Breaking Changes
 
@@ -45,6 +45,7 @@ The API for the binding coincides with the native Android API, which can be foun
     -  [Stop](#Stop)
     -  [Wait For Customer User ID](#WaitForCustomerUserId)
     - [SetPreinstallAttribution](#SetPreinstallAttribution)
+    - [DMA Consent](#DMAConsent)
 - [Sample App](#sample_app)
 
 
@@ -406,7 +407,30 @@ AppsFlyerLib.Instance.SetCustomerIdAndLogSession("custom_id", this.BaseContext);
 ```c#
 AppsFlyerLib.Instance.SetPreinstallAttribution(string mediaSource, string campaign, string siteId);
 ```
+### <a id="DMAConsent">
 
+## DMA Consent
+
+As part of the EU Digital Marketing Act (DMA) legislation, big tech companies must get consent from European end users before using personal data from third-party services for advertising.<br>
+Read more [here](https://dev.appsflyer.com/hc/docs/android-send-consent-for-dma-compliance)
+```c#
+//Automatic collection
+AppsFlyerLib.Instance.EnableTCFDataCollection(true);    // When using CMP, the SDK will collect the consent data
+
+// OR
+
+// Manual collection
+// hasConsentForDataUsage (1st argument): Indicates whether the user has consented to use their data for advertising purposes.
+// hasConsentForAdsPersonalization (2nd argument): Indicates whether the user has consented to use their data for personalized advertising purposes.
+AppsFlyerConsent consent = AppsFlyerConsent.ForGDPRUser(true, true);
+// or
+// If GDPR doesn’t apply to the user
+AppsFlyerConsent consent = AppsFlyerConsent.ForNonGDPRUser();
+
+AppsFlyerLib.Instance.SetConsentData(consent);
+...
+AppsFlyerLib.Instance.Start(this.Application, "xXxXxXx");
+```
 
 ### <a id="sample_app">
 ## Sample App 
