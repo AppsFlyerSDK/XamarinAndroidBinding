@@ -7,8 +7,8 @@
     <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
     <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
     <!--x.x.x.build_ver, platform_extension includes this value -->
-    <AssemblyVersion>6.13.0</AssemblyVersion>
-    <FileVersion>6.13.0</FileVersion>
+    <AssemblyVersion>6.13.1</AssemblyVersion>
+    <FileVersion>6.13.1</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
   </PropertyGroup>
@@ -22,7 +22,7 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>6.13.0</PackageVersion>
+    <PackageVersion>6.13.1</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -39,14 +39,6 @@
 
   <ItemGroup>
     <TransformFile Include="Transforms\*.xml" />
-  </ItemGroup>
-
- <ItemGroup>
-    <None Remove="Xamarin.Kotlin.StdLib.Jdk7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.5.10" />
   </ItemGroup>
 
 </Project>
