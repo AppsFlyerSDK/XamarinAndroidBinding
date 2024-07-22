@@ -41,12 +41,4 @@
     <TransformFile Include="Transforms\*.xml" />
   </ItemGroup>
 
- <!-- <ItemGroup>
-    <None Remove="Xamarin.Kotlin.StdLib.Jdk7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.5.10" />
-  </ItemGroup> -->
-
 </Project>
