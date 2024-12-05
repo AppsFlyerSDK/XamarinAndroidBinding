@@ -1,3 +1,6 @@
+mkdir -p nugets
+rm nugets/*
+
 rm -rf AppsFlyerBinding.Android/bin
 rm -rf AppsFlyerBinding.Android/obj
 
