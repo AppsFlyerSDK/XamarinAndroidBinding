@@ -1,6 +1,6 @@
-<Project Sdk="Xamarin.Legacy.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>monoandroid11.0;net6.0-android</TargetFrameworks>
+    <TargetFramework>net8.0-android</TargetFramework>
     <IsBindingProject>true</IsBindingProject>
     <!-- Hide some warnings -->
     <NoWarn>CS0108;CS0114;BG8700</NoWarn>
@@ -23,6 +23,10 @@
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageVersion>6.13.1</PackageVersion>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedAllSources>true</EmbedAllSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup>
