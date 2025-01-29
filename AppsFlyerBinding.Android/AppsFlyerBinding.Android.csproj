@@ -1,14 +1,14 @@
 <Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>monoandroid11.0;net6.0-android</TargetFrameworks>
+    <TargetFrameworks>monoandroid13.0;net7.0-android</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
     <!-- Hide some warnings -->
     <NoWarn>CS0108;CS0114;BG8700</NoWarn>
     <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
     <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
     <!--x.x.x.build_ver, platform_extension includes this value -->
-    <AssemblyVersion>6.13.1</AssemblyVersion>
-    <FileVersion>6.13.1</FileVersion>
+    <AssemblyVersion>6.15.0</AssemblyVersion>
+    <FileVersion>6.15.0</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
   </PropertyGroup>
@@ -22,7 +22,7 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>6.13.1</PackageVersion>
+    <PackageVersion>6.15.0</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>

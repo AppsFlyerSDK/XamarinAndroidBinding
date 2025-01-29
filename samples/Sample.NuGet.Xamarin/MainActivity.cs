@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
 using Com.Appsflyer;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
+using Org.Json;
 
 namespace XamarinSample
 {
@@ -46,9 +48,8 @@ namespace XamarinSample
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
-            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
             fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+
             fab.Click += FabOnClick;
             purchaseButton = FindViewById<FloatingActionButton>(Resource.Id.purchase_button);
             purchaseButton.Click += PurchaseButtonClick;
@@ -71,7 +72,6 @@ namespace XamarinSample
             AppsFlyerLib.Instance.SubscribeForDeepLink(dl);
             AppsFlyerLib.Instance.SetDisableAdvertisingIdentifiers(false);
             AppsFlyerLib.Instance.Start(this, "4UGrDF4vFvPLbHq5bXtCza"); // Replace with your app DevKey
-            
         }
 
         protected override void OnStop()
@@ -86,6 +86,7 @@ namespace XamarinSample
             base.OnResume();
             Console.WriteLine(gcdTextView.Text);
             Console.WriteLine(udlTextView.Text);
+            //LogAdRevenue();
         }
 
         private void PurchaseButtonClick(object sender, EventArgs eventArgs)
@@ -114,6 +115,36 @@ namespace XamarinSample
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        private void LogAdRevenue()
+        {
+            try
+            {
+                // Create an instance of AFAdRevenueData
+                AFAdRevenueData adRevenueData = new AFAdRevenueData(
+                          "ironsource",                 // monetizationNetwork
+                          MediationNetwork.GoogleAdmob, // mediationNetwork
+                          "USD",                        // currencyIso4217Code
+                          123.45                        // revenue
+                  );
+
+                Dictionary<string, Java.Lang.Object> additionalParameters = new Dictionary<string, Java.Lang.Object>
+                {
+                    { AdRevenueScheme.Country, "US" },
+                    { AdRevenueScheme.AdUnit, "89b8c0159a50ebd1" },    
+                    { AdRevenueScheme.AdType, "Banner" },
+                    { AdRevenueScheme.Placement, "place" }
+                };
+
+                AppsFlyerLib.Instance.LogAdRevenue(adRevenueData, additionalParameters);
+
+                Log.Info("AppsFlyer_", "Ad Revenue event logged successfully");
+            }
+            catch (JSONException ex)
+            {
+                Log.Error("AppsFlyer_", "Error occured while sending adRevenueEvent: " + ex.Message);
+            }
         }
     }
 
