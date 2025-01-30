@@ -46,7 +46,8 @@ The API for the binding coincides with the native Android API, which can be foun
     -  [Wait For Customer User ID](#WaitForCustomerUserId)
     - [SetPreinstallAttribution](#SetPreinstallAttribution)
     - [DMA Consent](#DMAConsent)
-    - [LogAdRevenue](#LogAdRevenue) (Since v6.15.0)
+    - [LogAdRevenue](#LogAdRevenue) (added at v6.15.0)
+    - [ValidateAndLogInAppPurchase](#ValidateAndLogInAppPurchase) (added at v6.15.0)
 - [Sample App](#sample_app)
 
 
@@ -473,6 +474,57 @@ Dictionary<string, Java.Lang.Object> additionalParameters = new Dictionary<strin
 
 // finally log the ad revenue event.
 AppsFlyerLib.Instance.LogAdRevenue(adRevenueData, additionalParameters);
+```
+
+### <a id="ValidateAndLogInAppPurchase">
+
+## ValidateAndLogInAppPurchase
+The method validates a purchase event with the store and if the validation is successful, the SDK sends an af_purchase event to AppsFlyer.
+
+### Example:
+```c#
+// AFPurchaseDetails object that encapsulates all data related to the purchase provided to the validateAndLogInAppPurchase method.
+AFPurchaseDetails purchaseDetails = new AFPurchaseDetails(
+    AFPurchaseType.OneTimePurchase,
+    "purchase_token",
+    "productId",
+    "40.5",
+    "USD"
+    );
+
+// Optional additional parameters can be added here. This is an example, can be discarded if not needed.
+Dictionary<string, string> customParameters = new Dictionary<string, string>
+    {
+        { "Country", "US" },
+        { "myCustomParam", "32423bwdfnsdf"}
+    };
+
+var validationCallback = new MyPurchaseValidationCallback();
+
+AppsFlyerLib.Instance.ValidateAndLogInAppPurchase(purchaseDetails, customParameters, validationCallback);
+```
+
+When MyPurchaseValidationCallback is actually:
+```c#
+using System.Collections.Generic;
+using Com.Appsflyer;
+
+namespace XamarinSample
+{
+    public class MyPurchaseValidationCallback
+    : Java.Lang.Object, IAppsFlyerInAppPurchaseValidationCallback
+    {
+        void IAppsFlyerInAppPurchaseValidationCallback.OnInAppPurchaseValidationError(IDictionary<string, Java.Lang.Object> validationError)
+        {
+            // Handle Validation Error Logic
+        }
+
+        void IAppsFlyerInAppPurchaseValidationCallback.OnInAppPurchaseValidationFinished(IDictionary<string, Java.Lang.Object> validationResult)
+        {
+            // Handle Validation Finished Logic
+        }
+    }
+}
 ```
 
 
