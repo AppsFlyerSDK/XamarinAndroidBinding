@@ -2,8 +2,8 @@
 
 
 Xamarin Binding integration guide For Android
-AppsFlyer Xamarin Binding version `v6.13.1`
-Built with AppsFlyer Android SDK `v6.13.1`
+AppsFlyer Xamarin Binding version `v6.15.0`
+Built with AppsFlyer Android SDK `v6.15.0`
 
 ## <a id="v6-breaking-changes"> ❗ v6 Breaking Changes
 
@@ -46,6 +46,7 @@ The API for the binding coincides with the native Android API, which can be foun
     -  [Wait For Customer User ID](#WaitForCustomerUserId)
     - [SetPreinstallAttribution](#SetPreinstallAttribution)
     - [DMA Consent](#DMAConsent)
+    - [LogAdRevenue](#LogAdRevenue) (Since v6.15.0)
 - [Sample App](#sample_app)
 
 
@@ -432,10 +433,53 @@ AppsFlyerLib.Instance.SetConsentData(consent);
 AppsFlyerLib.Instance.Start(this.Application, "xXxXxXx");
 ```
 
+### <a id="LogAdRevenue">
+
+## Log Ad Revenue
+The app sends impression revenue data to the SDK which then sends it to AppsFlyer. The revenue data is collected and processed in AppsFlyer, and the revenue is attributed to the original UA source. To learn more about ad revenue see [here](https://support.appsflyer.com/hc/en-us/articles/217490046-ROI360-ad-revenue-attribution-guide#connect-to-ad-revenue-integrated-partners).
+
+### **Usage:**
+To use the logAdRevenue method, you must:
+
+1. Prepare an instance of `AdRevenueData` with the required information about the ad revenue event.
+1. Call `logAdRevenue` with the `AdRevenueData` instance.
+
+**AdRevenueData Class**
+AdRevenueData is a data class representing all the relevant information about an ad revenue event:
+
+* `monetizationNetwork`: The source network from which the revenue was generated (e.g., AdMob, Unity Ads).
+* `mediationNetwork`: The mediation platform managing the ad (use the MediationNetwork enum to choose supported networks).
+* `currencyIso4217Code`: The ISO 4217 currency code representing the currency of the revenue amount (e.g., "USD", "EUR").
+* `revenue`: The amount of revenue generated from the ad.
+* `additionalParameters`: Additional parameters related to the ad revenue event (optional, nullable).
+
+### Example:
+```c#
+// Create an instance of AFAdRevenueData
+AFAdRevenueData adRevenueData = new AFAdRevenueData(
+            "ironsource",                 // monetizationNetwork
+            MediationNetwork.GoogleAdmob, // mediationNetwork
+            "USD",                        // currencyIso4217Code
+            123.45                        // revenue
+    );
+// Optional additional parameters can be added here. This is an example, can be discarded if not needed.
+Dictionary<string, Java.Lang.Object> additionalParameters = new Dictionary<string, Java.Lang.Object>
+{
+    { AdRevenueScheme.Country, "US" },
+    { AdRevenueScheme.AdUnit, "89b8c0159a50ebd1" },    
+    { AdRevenueScheme.AdType, "Banner" },
+    { AdRevenueScheme.Placement, "place" }
+};
+
+// finally log the ad revenue event.
+AppsFlyerLib.Instance.LogAdRevenue(adRevenueData, additionalParameters);
+```
+
+
 ### <a id="sample_app">
 ## Sample App 
 Sample app can be found here:
-https://github.com/AppsFlyerSDK/XamarinAndroidBinding/tree/master/XamarinSample
+https://github.com/AppsFlyerSDK/XamarinAndroidBinding/tree/master/samples/Sample.NuGet.Xamarin
 
 
 ---
