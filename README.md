@@ -462,7 +462,7 @@ AFAdRevenueData adRevenueData = new AFAdRevenueData(
             "USD",                        // currencyIso4217Code
             123.45                        // revenue
     );
-// Optional additional parameters can be added here. This is an example, can be discard if not needed.
+// Optional additional parameters can be added here. This is an example, can be discarded if not needed.
 Dictionary<string, Java.Lang.Object> additionalParameters = new Dictionary<string, Java.Lang.Object>
 {
     { AdRevenueScheme.Country, "US" },
