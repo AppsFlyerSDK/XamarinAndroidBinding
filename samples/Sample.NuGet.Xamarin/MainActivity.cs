@@ -139,11 +139,11 @@ namespace XamarinSample
 
                 AppsFlyerLib.Instance.LogAdRevenue(adRevenueData, additionalParameters);
 
-                Log.Info("AppsFlyer_", "Ad Revenue event logged successfully");
+                Log.Info("AppsFlyer_", "Ad Revenue event logging triggered successfully");
             }
             catch (JSONException ex)
             {
-                Log.Error("AppsFlyer_", "Error occured while sending adRevenueEvent: " + ex.Message);
+                Log.Error("AppsFlyer_", "Error occured while trying to trigger adRevenueEvent: " + ex.Message);
             }
         }
     }
