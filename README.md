@@ -455,24 +455,24 @@ AdRevenueData is a data class representing all the relevant information about an
 
 ### Example:
 ```c#
-                // Create an instance of AFAdRevenueData
-                AFAdRevenueData adRevenueData = new AFAdRevenueData(
-                          "ironsource",                 // monetizationNetwork
-                          MediationNetwork.GoogleAdmob, // mediationNetwork
-                          "USD",                        // currencyIso4217Code
-                          123.45                        // revenue
-                  );
-                // Optional additional parameters can be added here. This is an example, can be discard if not needed.
-                Dictionary<string, Java.Lang.Object> additionalParameters = new Dictionary<string, Java.Lang.Object>
-                {
-                    { AdRevenueScheme.Country, "US" },
-                    { AdRevenueScheme.AdUnit, "89b8c0159a50ebd1" },    
-                    { AdRevenueScheme.AdType, "Banner" },
-                    { AdRevenueScheme.Placement, "place" }
-                };
+// Create an instance of AFAdRevenueData
+AFAdRevenueData adRevenueData = new AFAdRevenueData(
+            "ironsource",                 // monetizationNetwork
+            MediationNetwork.GoogleAdmob, // mediationNetwork
+            "USD",                        // currencyIso4217Code
+            123.45                        // revenue
+    );
+// Optional additional parameters can be added here. This is an example, can be discard if not needed.
+Dictionary<string, Java.Lang.Object> additionalParameters = new Dictionary<string, Java.Lang.Object>
+{
+    { AdRevenueScheme.Country, "US" },
+    { AdRevenueScheme.AdUnit, "89b8c0159a50ebd1" },    
+    { AdRevenueScheme.AdType, "Banner" },
+    { AdRevenueScheme.Placement, "place" }
+};
 
-                // finally log the ad revenue event.
-                AppsFlyerLib.Instance.LogAdRevenue(adRevenueData, additionalParameters);
+// finally log the ad revenue event.
+AppsFlyerLib.Instance.LogAdRevenue(adRevenueData, additionalParameters);
 ```
 
 
