@@ -87,6 +87,7 @@ namespace XamarinSample
             Console.WriteLine(gcdTextView.Text);
             Console.WriteLine(udlTextView.Text);
             //LogAdRevenue();
+            //ValidateAndLogV2Example();
         }
 
         private void PurchaseButtonClick(object sender, EventArgs eventArgs)
@@ -115,6 +116,29 @@ namespace XamarinSample
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        private void ValidateAndLogV2Example()
+        {
+            //AFPurchaseDetails
+            // An object that encapsulates all data related to the purchase provided to the validateAndLogInAppPurchase method.
+            AFPurchaseDetails purchaseDetails = new AFPurchaseDetails(
+                AFPurchaseType.OneTimePurchase,
+                "purchase_token",
+                "productId",
+                "40.5",
+                "USD"
+                );
+
+            Dictionary<string, string> customParameters = new Dictionary<string, string>
+                {
+                    { "Country", "US" },
+                    { "myCustomParam", "32423bwdfnsdf"}
+                };
+
+            var validationCallback = new MyPurchaseValidationCallback();
+
+            AppsFlyerLib.Instance.ValidateAndLogInAppPurchase(purchaseDetails, customParameters, validationCallback);
         }
 
         private void LogAdRevenue()
