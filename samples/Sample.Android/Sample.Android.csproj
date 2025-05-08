@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0-android</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>Sample.Android</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationId>com.appsflyer.xamarinsample</ApplicationId>
+        <ApplicationVersion>1</ApplicationVersion>
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
+        <!-- Enable this for debugging -->
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    </PropertyGroup>
+
+    <!-- Use the local NuGet package -->
+    <PropertyGroup>
+        <RestoreAdditionalProjectSources>$(MSBuildThisFileDirectory)../../nugets</RestoreAdditionalProjectSources>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AppsFlyerXamarinBindingAndroid" Version="6.17.0" />
+        <PackageReference Include="Xamarin.Kotlin.StdLib" Version="2.0.21.3" />
+    </ItemGroup>
+</Project> 
