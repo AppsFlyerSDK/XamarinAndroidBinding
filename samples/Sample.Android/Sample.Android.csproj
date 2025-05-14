@@ -13,13 +13,16 @@
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     </PropertyGroup>
 
-    <!-- Use the local NuGet package -->
-    <PropertyGroup>
+     <!-- Use the local NuGet package --> 
+     <PropertyGroup>
         <RestoreAdditionalProjectSources>$(MSBuildThisFileDirectory)../../nugets</RestoreAdditionalProjectSources>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AppsFlyerXamarinBindingAndroid" Version="6.17.0" />
         <PackageReference Include="Xamarin.Kotlin.StdLib" Version="2.0.21.3" />
+        <PackageReference Include="AppsFlyerXamarinBindingAndroid" Version="6.17.0" />
+        <!-- For local binding project reference, uncomment the line below and comment out the PackageReference above -->
+        <!-- <ProjectReference Include="../../AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj" /> -->
     </ItemGroup>
 </Project> 

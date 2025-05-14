@@ -1,10 +1,24 @@
 #!/bin/bash
 
-# Define color codes
+# Color codes
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 echo "Cleaning AppsFlyer binding plugin and sample app..."
+
+# Optional: Clear all NuGet caches
+read -p "Do you want to clear all global NuGet caches (http, global-packages, temp)? (y/n): " clean_nuget_caches
+if [ "$clean_nuget_caches" = "y" ] || [ "$clean_nuget_caches" = "Y" ]; then
+  echo "Clearing all NuGet caches..."
+  dotnet nuget locals all --clear
+fi
+
+# Optional: Remove the .vs solution cache folder
+read -p "Do you want to remove the .vs solution cache folder? (y/n): " clean_vs
+if [ "$clean_vs" = "y" ] || [ "$clean_vs" = "Y" ]; then
+  echo "Removing .vs folder..."
+  rm -rf .vs
+fi
 
 # Clean the binding project with dotnet clean
 echo "Cleaning binding project..."
@@ -33,10 +47,10 @@ if adb devices | grep -q "device$"; then
   fi
 fi
 
-# Optional: Clean NuGet packages
-read -p "Do you want to clean generated NuGet packages too? (y/n): " clean_nuget
-if [ "$clean_nuget" = "y" ] || [ "$clean_nuget" = "Y" ]; then
-  echo "Cleaning NuGet packages..."
+# Optional: Clean generated NuGet package files
+read -p "Do you want to clean generated NuGet package files (in ./nugets folder)? (y/n): " clean_nuget_files
+if [ "$clean_nuget_files" = "y" ] || [ "$clean_nuget_files" = "Y" ]; then
+  echo "Cleaning NuGet package files..."
   rm -f nugets/AppsFlyerXamarinBindingAndroid.*.nupkg
 fi
 

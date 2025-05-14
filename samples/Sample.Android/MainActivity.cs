@@ -19,14 +19,14 @@ namespace Sample.Android
             // Set content view
             SetContentView(CreateDemoLayout());
             
-            // Initialize AppsFlyer SDK 6.17.0
+            // Initialize AppsFlyer SDK
             string devKey = "4UGrDF4vFvPLbHq5bXtCza"; // Replace with your AppsFlyer Dev Key
             AppsFlyerLib appsFlyerLib = AppsFlyerLib.Instance;
             appsFlyerLib.Init(devKey, null, this);
-            appsFlyerLib.Start(this);
             
             // Enable debug logs in development
             appsFlyerLib.SetDebugLog(true);
+            appsFlyerLib.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
             
             System.Console.WriteLine("AppsFlyer SDK Initialized");
             
