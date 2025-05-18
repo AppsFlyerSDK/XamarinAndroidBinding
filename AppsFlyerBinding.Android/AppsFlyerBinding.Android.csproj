@@ -24,6 +24,7 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageVersion>6.17.0</PackageVersion>
   </PropertyGroup>
 
@@ -33,6 +34,7 @@
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="\" />
+    <None Include="../LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
