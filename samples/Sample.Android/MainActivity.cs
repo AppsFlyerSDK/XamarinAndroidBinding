@@ -1,88 +1,202 @@
-using Android.App;
-using Android.OS;
 using Com.Appsflyer;
-using Java.Lang;
-using Android.Widget;
-using System;
-using Android.Views;
-using System.Collections.Generic;
+using Android.Util;
 
-namespace Sample.Android
+namespace com.appsflyer.xamarinsample
 {
-    [Activity(Label = "AppsFlyer SDK Demo", MainLauncher = true, Theme = "@android:style/Theme.Material.Light", Name = "com.appsflyer.xamarinsample.MainActivity")]
+    [Activity(Label = "@string/app_name", MainLauncher = true)]
+    [Android.Runtime.Register("com.appsflyer.xamarinsample.MainActivity")]
     public class MainActivity : Activity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        public TextView? statusTextView;
+        private Button? logEventButton;
+        private Button? logEventWithParamsButton;
+        private Button? setCustomUserIdButton;
+        private Button? getAppsFlyerIdButton;
+        private Button? validatePurchaseButton;
+
+        private const string TAG = "AppsFlyer_SampleApp";
+        private string? devKey;
+
+        // Declare listener instances
+        private ConversionListener? conversionListener;
+        private DeepLinkListener? deepLinkListener;
+
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
-            // Set content view
-            SetContentView(CreateDemoLayout());
-            
+            SetContentView(global::Sample.Android.Resource.Layout.activity_main); 
+
+            devKey = Resources.GetString(global::Sample.Android.Resource.String.appsflyer_dev_key);
+            if (string.IsNullOrEmpty(devKey) || devKey == "YOUR_APPSFLYER_DEV_KEY")
+            {
+                Log.Error(TAG, "AppsFlyer Dev Key is not set or is a placeholder. Please set it in secrets.xml.");
+                UpdateStatus("ERROR: AppsFlyer Dev Key not set!");
+            }
+
+            // Since there's only one Resource class in scope, we don't need the global:: prefix
+            // The global:: prefix was unnecessary since there's no naming conflict with Android.Resource
+            statusTextView = FindViewById<TextView>(Sample.Android.Resource.Id.statusTextView);
+            logEventButton = FindViewById<Button>(Sample.Android.Resource.Id.logEventButton);
+            logEventWithParamsButton = FindViewById<Button>(Sample.Android.Resource.Id.logEventWithParamsButton); 
+            setCustomUserIdButton = FindViewById<Button>(Sample.Android.Resource.Id.setCustomUserIdButton);
+            getAppsFlyerIdButton = FindViewById<Button>(Sample.Android.Resource.Id.getAppsFlyerIdButton);
+            validatePurchaseButton = FindViewById<Button>(Sample.Android.Resource.Id.validatePurchaseButton);
+
+            UpdateStatus("Activity Created. SDK not initialized yet.");
+
+            // Instantiate listeners
+            conversionListener = new ConversionListener(this);
+            deepLinkListener = new DeepLinkListener(this);
+
             // Initialize AppsFlyer SDK
-            string devKey = "4UGrDF4vFvPLbHq5bXtCza"; // Replace with your AppsFlyer Dev Key
             AppsFlyerLib appsFlyerLib = AppsFlyerLib.Instance;
-            appsFlyerLib.Init(devKey, null, this);
-            
-            // Enable debug logs in development
             appsFlyerLib.SetDebugLog(true);
-            appsFlyerLib.SetLogLevel(AFLogger.LogLevel.Verbose); // Enable verbose logs for debugging
+            appsFlyerLib.Init(devKey, conversionListener, this.ApplicationContext); 
+            appsFlyerLib.SubscribeForDeepLink(deepLinkListener); 
+            appsFlyerLib.Start(this);
+            UpdateStatus("AppsFlyer Init, SubscribeForDeepLink, and Start called in OnCreate.");
+            Log.Info(TAG, "AppsFlyerLib.Instance.Init, SubscribeForDeepLink and Start called.");
             
-            System.Console.WriteLine("AppsFlyer SDK Initialized");
-            
-            // Get button and attach click handler
-            Button button = FindViewById<Button>(1001);
-            int clickCount = 0;
-            
-            button.Click += (sender, e) => {
-                clickCount++;
-                button.Text = $"Clicked {clickCount} times";
-                
-                // Log event to AppsFlyer - convert HashMap to Dictionary for the API
-                var eventValues = new Dictionary<string, Java.Lang.Object>();
-                eventValues["button_click_count"] = new Java.Lang.String(clickCount.ToString());
-                eventValues["timestamp"] = new Java.Lang.String(DateTime.Now.ToString("o"));
-                
-                // Log the event to AppsFlyer
-                AppsFlyerLib.Instance.LogEvent(this, "button_click", eventValues);
-                
-                System.Console.WriteLine($"Logged AppsFlyer event: button_click (count: {clickCount})");
+
+            logEventButton.Click += (sender, e) => 
+            {
+                string eventName = "af_simple_event";
+                UpdateStatus($"Logging event: {eventName}");
+                AppsFlyerLib.Instance.LogEvent(this, eventName, null);
+                Log.Info(TAG, $"Logged event: {eventName}");
+                ShowToast($"Event '{eventName}' logged.");
             };
-        }
+            
+
         
-        protected override void OnResume()
-        {
-            base.OnResume();
-            
-            // Start the SDK (will be called on each activity resume)
-            AppsFlyerLib.Instance.Start(this);
-        }
+            logEventWithParamsButton.Click += (sender, e) => 
+            {
+                string eventName = "af_event_with_params";
+
+                var eventValues = new Dictionary<string, Java.Lang.Object>
+                {
+                    { "app_version", new Java.Lang.String("1.0.0") },
+                    { "event_source", new Java.Lang.String("button_click") },
+                    { "item_id", new Java.Lang.String("123") }
+                };
+                UpdateStatus($"Logging event: {eventName} with parameters");
+                AppsFlyerLib.Instance.LogEvent(this, eventName, eventValues);
+                Log.Info(TAG, $"Logged event: {eventName} with params.");
+                ShowToast($"Event '{eventName}' with params logged.");
+            };
         
-        private View CreateDemoLayout()
+
+        
+            setCustomUserIdButton.Click += (sender, e) => 
+            {
+                string cuid = "test-cuid-12345";
+                UpdateStatus($"Setting Custom User ID: {cuid}");
+                AppsFlyerLib.Instance.SetCustomerUserId(cuid);
+                Log.Info(TAG, $"Set Custom User ID: {cuid}");
+                ShowToast($"Custom User ID '{cuid}' set.");
+            };
+            
+
+            
+            getAppsFlyerIdButton.Click += (sender, e) =>
+            {
+                string? appsFlyerId = AppsFlyerLib.Instance.GetAppsFlyerUID(this); // Can be null
+                UpdateStatus($"AppsFlyer ID: {appsFlyerId ?? "Not available"}");
+                Log.Info(TAG, $"Retrieved AppsFlyer ID: {appsFlyerId ?? "Not available"}");
+                ShowToast($"AppsFlyer ID: {appsFlyerId ?? "Not available"}");
+            };
+            
+
+            
+            validatePurchaseButton.Click += (sender, e) =>
+            {
+                try
+                {
+                    ShowToast("Called ValidateAndLogInAppPurchase.");
+                    Log.Info(TAG, "Called ValidateAndLogInAppPurchase");
+                    ValidateAndLogV2Example();
+                }
+                catch (System.Exception ex)
+                {
+                    Log.Error(TAG, $"Error calling ValidateAndLogInAppPurchase: {ex.Message}");
+                    ShowToast("Error calling purchase validation");
+                }
+            };
+            
+        }
+
+        // Public method for listeners to update status
+        public void UpdateStatusFromListener(string message)
         {
-            // Create a simple linear layout
-            var layout = new LinearLayout(this);
-            layout.Orientation = Orientation.Vertical;
-            layout.SetPadding(40, 40, 40, 40);
-            layout.SetGravity(GravityFlags.Center);
-            
-            // Create title text
-            var titleText = new TextView(this);
-            titleText.Text = "AppsFlyer SDK 6.17.0 Demo";
-            titleText.TextSize = 24;
-            titleText.SetPadding(0, 0, 0, 80);
-            titleText.Gravity = GravityFlags.Center;
-            
-            // Create button
-            var button = new Button(this);
-            button.Id = 1001;
-            button.Text = "Click me";
-            
-            // Add views to layout
-            layout.AddView(titleText);
-            layout.AddView(button);
-            
-            return layout;
+            RunOnUiThread(() => 
+            {
+                if (statusTextView != null) 
+                {
+                    statusTextView.Text = $"Listener: {message}";
+                }
+            });
+        }
+
+        // Public method for listeners to show toast
+        public void ShowToastOnListenerCallback(string message)
+        {
+            RunOnUiThread(() => Toast.MakeText(this, message, ToastLength.Short).Show());
+        }
+
+        private void UpdateStatus(string message)
+        {
+            RunOnUiThread(() => 
+            {
+                if (statusTextView != null) 
+                {
+                    statusTextView.Text = $"Status: {message}";
+                }
+            });
+            Log.Debug(TAG, message); // Also log to Logcat
+        }
+
+        private void ShowToast(string message)
+        {
+            RunOnUiThread(() => Toast.MakeText(this, message, ToastLength.Short).Show());
+        }
+
+        protected override void OnNewIntent(global::Android.Content.Intent? intent) // Made intent nullable
+        {
+            base.OnNewIntent(intent);
+            this.Intent = intent; // Correct way to set the activity's intent
+            Log.Info(TAG, "OnNewIntent called.");
+            if (intent != null)
+            {
+                 AppsFlyerLib.Instance.PerformOnDeepLinking(intent, this); // Recommended for UDL if activity is re-launched
+                 UpdateStatus("OnNewIntent: Called PerformOnDeepLinking.");
+            }
+            else
+            {
+                UpdateStatus("OnNewIntent: Intent was null.");
+            }
+        }
+
+        private void ValidateAndLogV2Example()
+        {
+            //AFPurchaseDetails
+            // An object that encapsulates all data related to the purchase provided to the validateAndLogInAppPurchase method.
+            AFPurchaseDetails purchaseDetails = new AFPurchaseDetails(
+                AFPurchaseType.OneTimePurchase,
+                "purchase_token",
+                "productId",
+                "40.5",
+                "USD"
+                );
+
+            Dictionary<string, string> customParameters = new Dictionary<string, string>
+                {
+                    { "Country", "US" },
+                    { "myCustomParam", "32423bwdfnsdf"}
+                };
+
+            var validationCallback = new MyPurchaseValidationCallback(this);
+
+            AppsFlyerLib.Instance.ValidateAndLogInAppPurchase(purchaseDetails, customParameters, validationCallback);
         }
     }
 } 

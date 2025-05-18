@@ -10,6 +10,10 @@ if ! adb devices | grep -q "device$"; then
   exit 1
 fi
 
+# Force stop any existing app instances
+echo "Stopping any running instances of the app..."
+adb shell am force-stop com.appsflyer.xamarinsample
+
 # Install and run the app
 echo "Installing and launching AppsFlyer sample app..."
 adb install -r samples/Sample.Android/bin/Release/net8.0-android/com.appsflyer.xamarinsample-Signed.apk

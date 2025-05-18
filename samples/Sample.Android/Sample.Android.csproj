@@ -5,6 +5,7 @@
         <OutputType>Exe</OutputType>
         <RootNamespace>Sample.Android</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
         <ApplicationId>com.appsflyer.xamarinsample</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -18,10 +19,19 @@
         <RestoreAdditionalProjectSources>$(MSBuildThisFileDirectory)../../nugets</RestoreAdditionalProjectSources>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <AndroidAarLibrary Include="libs/installreferrer-2.1.aar" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <GoogleServicesJson Include="google-services.json" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Xamarin.Kotlin.StdLib" Version="2.0.21.3" />
         <PackageReference Include="AppsFlyerXamarinBindingAndroid" Version="6.17.0" />
+        <PackageReference Include="Xamarin.Firebase.Messaging" Version="123.4.1.1" />
         <!-- For local binding project reference, uncomment the line below and comment out the PackageReference above -->
         <!-- <ProjectReference Include="../../AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj" /> -->
     </ItemGroup>

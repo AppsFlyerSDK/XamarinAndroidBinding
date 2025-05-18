@@ -403,3 +403,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# AppsFlyer Sample App Secrets
+samples/Sample.Android/Resources/values/secrets.xml
