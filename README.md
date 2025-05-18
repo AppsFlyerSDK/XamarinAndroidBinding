@@ -1,13 +1,15 @@
-# Xamarin Android Binding
+# .NET Android Binding for AppsFlyer
 
 
-Xamarin Binding integration guide For Android
-AppsFlyer Xamarin Binding version `v6.15.0`
-Built with AppsFlyer Android SDK `v6.15.0`
+.NET Android Binding integration guide for AppsFlyer
+AppsFlyer .NET Android Binding version `v6.17.0` (.NET 8)
+Built with AppsFlyer Android SDK `v6.17.0`
 
 ## <a id="v6-breaking-changes"> ❗ v6 Breaking Changes
 
 We have renamed some of the APIs. For more details, please check out our [Help Center](https://support.appsflyer.com/hc/en-us/articles/115001256006#methods-removeddeprecated-or-renamed)
+
+Starting with v6.17.0, traditional Xamarin Android is no longer supported. The binding now targets .NET 8, providing full compatibility with .NET MAUI and modern .NET Android applications. Projects using previous versions should migrate to .NET 8 when upgrading to v6.17.0 or later.
 
 
 # 1. Overview
@@ -46,6 +48,7 @@ The API for the binding coincides with the native Android API, which can be foun
     -  [Wait For Customer User ID](#WaitForCustomerUserId)
     - [SetPreinstallAttribution](#SetPreinstallAttribution)
     - [DMA Consent](#DMAConsent)
+    - [Disable AppSet ID Collection](#DisableAppSetId) (added at v6.17.0)
     - [LogAdRevenue](#LogAdRevenue) (added at v6.15.0)
     - [ValidateAndLogInAppPurchase](#ValidateAndLogInAppPurchase) (added at v6.15.0)
 - [Sample App](#sample_app)
@@ -79,7 +82,7 @@ https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
 
     1. Go to Project > Add NuGet Packages...
     2. Select the `AppsFlyerXamarinBindingAndroid`
-    3. Select under version -  `6.12.2`
+    3. Select under version -  `6.17.0`
     4. Click `Add Package`
 
 
@@ -413,25 +416,68 @@ AppsFlyerLib.Instance.SetPreinstallAttribution(string mediaSource, string campai
 
 ## DMA Consent
 
-As part of the EU Digital Marketing Act (DMA) legislation, big tech companies must get consent from European end users before using personal data from third-party services for advertising.<br>
-Read more [here](https://dev.appsflyer.com/hc/docs/android-send-consent-for-dma-compliance)
+As part of the EU Digital Marketing Act (DMA) legislation, big tech companies must get consent from European end users before using personal data from third-party services for advertising.
+
+Read more about DMA compliance [here](https://dev.appsflyer.com/hc/docs/android-send-consent-for-dma-compliance)
+
 ```c#
-//Automatic collection
-AppsFlyerLib.Instance.EnableTCFDataCollection(true);    // When using CMP, the SDK will collect the consent data
+// There are two ways to collect consent data:
+
+// Method 1: Using a Consent Management Platform (CMP)
+// If your app uses a CMP that complies with TCF v2.2, the SDK can automatically collect consent data
+AppsFlyerLib.Instance.EnableTCFDataCollection(true);
+AppsFlyerLib.Instance.Start(this.Application, "YOUR_DEV_KEY");
 
 // OR
 
-// Manual collection
-// hasConsentForDataUsage (1st argument): Indicates whether the user has consented to use their data for advertising purposes.
-// hasConsentForAdsPersonalization (2nd argument): Indicates whether the user has consented to use their data for personalized advertising purposes.
-AppsFlyerConsent consent = AppsFlyerConsent.ForGDPRUser(true, true);
-// or
-// If GDPR doesn’t apply to the user
-AppsFlyerConsent consent = AppsFlyerConsent.ForNonGDPRUser();
+// Method 2: Manually collecting and passing consent data to the SDK
+// First, determine if GDPR applies to the user and what consent choices they've made
 
-AppsFlyerLib.Instance.SetConsentData(consent);
-...
-AppsFlyerLib.Instance.Start(this.Application, "xXxXxXx");
+// Create an AppsFlyerConsent object with the following parameters:
+// 1. isUserSubjectToGDPR - Indicates whether GDPR applies to the user
+// 2. hasConsentForDataUsage - Indicates whether the user has consented to data use for advertising
+// 3. hasConsentForAdsPersonalization - Indicates whether the user has consented to personalized advertising
+// 4. hasConsentForAdStorage - Indicates whether the user has consented to store information on the device
+
+// Example for a user subject to GDPR:
+AppsFlyerConsent gdprUserConsent = new AppsFlyerConsent(
+    isUserSubjectToGDPR: true,
+    hasConsentForDataUsage: true,
+    hasConsentForAdsPersonalization: true, 
+    hasConsentForAdStorage: true
+);
+
+// Example for a user NOT subject to GDPR:
+// When GDPR doesn't apply, the other consent parameters must be null
+// AppsFlyerConsent nonGdprUserConsent = new AppsFlyerConsent(
+//    isUserSubjectToGDPR: false,
+//    hasConsentForDataUsage: null,
+//    hasConsentForAdsPersonalization: null,
+//    hasConsentForAdStorage: null
+// );
+
+// Set the consent data before starting the SDK
+AppsFlyerLib.Instance.SetConsentData(gdprUserConsent);
+
+// Then start the SDK
+AppsFlyerLib.Instance.Start(this.Application, "YOUR_DEV_KEY");
+```
+
+> **Note**: The SDK registers only parameters that are explicitly passed to the `SetConsentData()` method via the `AppsFlyerConsent` object. Only use one of the two consent collection methods for any given event.
+
+### <a id="DisableAppSetId">
+
+## Disable AppSet ID Collection
+
+The AppSet ID is a resettable identifier that uniquely identifies a set of apps from the same developer on a given device. Starting from v6.17.0, you can disable the collection of AppSet ID by calling the `disableAppSetId` method before starting the SDK.
+
+```c#
+// Disable AppSet ID collection
+AppsFlyerLib.Instance.DisableAppSetId();
+
+// Then initialize and start the SDK
+AppsFlyerLib.Instance.Init("YOUR_DEV_KEY", new AppsFlyerConversionDelegate(this), this.Application);
+AppsFlyerLib.Instance.Start(this.Application, "YOUR_DEV_KEY");
 ```
 
 ### <a id="LogAdRevenue">
@@ -533,6 +579,15 @@ namespace XamarinSample
 Sample app can be found here:
 https://github.com/AppsFlyerSDK/XamarinAndroidBinding/tree/master/samples/Sample.NuGet.Xamarin
 
+## .NET 8 Support
+Starting from version 6.17.0, the AppsFlyer SDK supports .NET 8 and MAUI applications. The SDK now targets `net8.0-android` for compatibility with the latest .NET platform.
+
+If you are migrating from an older version of Xamarin to .NET MAUI or .NET 8, follow these steps:
+1. Update your project to target .NET 8
+2. Update the AppsFlyer NuGet package to version 6.17.0 or later
+3. Update any platform-specific code according to the .NET 8/MAUI guidelines
+
+The sample app in this repository demonstrates how to use AppsFlyer SDK with .NET 8.
 
 ---
 
