@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/windowBackground" 
     android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AppsFlyer .NET sample"
+        android:textSize="24sp"
+        android:textColor="@color/textColorPrimary"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/sdkVersionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SDK Version: Loading..."
+        android:textSize="16sp"
+        android:textColor="@color/textColorSecondary"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:id="@+id/statusTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:text="Status: Idle"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        style="@style/StatusTextView" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,40 +45,45 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/logEventButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Log Simple Event" />
+                android:text="Log Simple Event"
+                app:backgroundTint="@color/colorAccent" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/logEventWithParamsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Log Event with Parameters" />
+                android:text="Log Event with Parameters"
+                app:backgroundTint="@color/colorAccent" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/setCustomUserIdButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Set Custom User ID" />
+                android:text="Set Custom User ID"
+                app:backgroundTint="@color/palette_dark_blue" />
 
-           <Button
+           <com.google.android.material.button.MaterialButton
                 android:id="@+id/getAppsFlyerIdButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Get AppsFlyer ID" />
+                android:text="Get AppsFlyer ID"
+                app:backgroundTint="@color/palette_dark_blue" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/validatePurchaseButton" 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Validate In-App Purchase" />
+                android:text="Validate In-App Purchase"
+                app:backgroundTint="@color/palette_pink" />
 
         </LinearLayout>
     </ScrollView>

@@ -8,6 +8,7 @@ namespace com.appsflyer.xamarinsample
     public class MainActivity : Activity
     {
         public TextView? statusTextView;
+        public TextView? sdkVersionTextView;
         private Button? logEventButton;
         private Button? logEventWithParamsButton;
         private Button? setCustomUserIdButton;
@@ -33,14 +34,13 @@ namespace com.appsflyer.xamarinsample
                 UpdateStatus("ERROR: AppsFlyer Dev Key not set!");
             }
 
-            // Since there's only one Resource class in scope, we don't need the global:: prefix
-            // The global:: prefix was unnecessary since there's no naming conflict with Android.Resource
-            statusTextView = FindViewById<TextView>(Sample.Android.Resource.Id.statusTextView);
-            logEventButton = FindViewById<Button>(Sample.Android.Resource.Id.logEventButton);
-            logEventWithParamsButton = FindViewById<Button>(Sample.Android.Resource.Id.logEventWithParamsButton); 
-            setCustomUserIdButton = FindViewById<Button>(Sample.Android.Resource.Id.setCustomUserIdButton);
-            getAppsFlyerIdButton = FindViewById<Button>(Sample.Android.Resource.Id.getAppsFlyerIdButton);
-            validatePurchaseButton = FindViewById<Button>(Sample.Android.Resource.Id.validatePurchaseButton);
+            statusTextView = FindViewById<TextView>(global::Sample.Android.Resource.Id.statusTextView);
+            sdkVersionTextView = FindViewById<TextView>(global::Sample.Android.Resource.Id.sdkVersionTextView);
+            logEventButton = FindViewById<Button>(global::Sample.Android.Resource.Id.logEventButton);
+            logEventWithParamsButton = FindViewById<Button>(global::Sample.Android.Resource.Id.logEventWithParamsButton); 
+            setCustomUserIdButton = FindViewById<Button>(global::Sample.Android.Resource.Id.setCustomUserIdButton);
+            getAppsFlyerIdButton = FindViewById<Button>(global::Sample.Android.Resource.Id.getAppsFlyerIdButton);
+            validatePurchaseButton = FindViewById<Button>(global::Sample.Android.Resource.Id.validatePurchaseButton);
 
             UpdateStatus("Activity Created. SDK not initialized yet.");
 
@@ -54,6 +54,14 @@ namespace com.appsflyer.xamarinsample
             appsFlyerLib.Init(devKey, conversionListener, this.ApplicationContext); 
             appsFlyerLib.SubscribeForDeepLink(deepLinkListener); 
             appsFlyerLib.Start(this);
+
+            // Get and display SDK version
+            if (sdkVersionTextView != null)
+            {
+                string sdkVersion = appsFlyerLib.SdkVersion;
+                sdkVersionTextView.Text = $"SDK Version: {sdkVersion}";
+            }
+
             UpdateStatus("AppsFlyer Init, SubscribeForDeepLink, and Start called in OnCreate.");
             Log.Info(TAG, "AppsFlyerLib.Instance.Init, SubscribeForDeepLink and Start called.");
             

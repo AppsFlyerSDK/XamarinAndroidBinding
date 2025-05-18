@@ -13,8 +13,9 @@
     
     <application
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_dotnet"
         android:label="AppsFlyer SDK Demo"
-        android:theme="@android:style/Theme.Material.Light">
+        android:theme="@style/AppTheme">
         <activity
             android:name="com.appsflyer.xamarinsample.MainActivity"
             android:exported="true"
