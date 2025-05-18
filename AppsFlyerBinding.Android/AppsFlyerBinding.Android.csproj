@@ -1,20 +1,22 @@
-<Project Sdk="Xamarin.Legacy.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>monoandroid13.0;net7.0-android</TargetFrameworks>
-    <IsBindingProject>true</IsBindingProject>
-    <!-- Hide some warnings -->
-    <NoWarn>CS0108;CS0114;BG8700</NoWarn>
-    <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
-    <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
-    <!--x.x.x.build_ver, platform_extension includes this value -->
-    <AssemblyVersion>6.15.0</AssemblyVersion>
-    <FileVersion>6.15.0</FileVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFramework>net8.0-android</TargetFramework>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
-  </PropertyGroup>
-  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
+    <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
+    <AssemblyVersion>6.17.0</AssemblyVersion>
+    <FileVersion>6.17.0</FileVersion>
+    
+    <!-- Android Binding specific properties -->
+    <AndroidUseIntermediateDesignerFile>false</AndroidUseIntermediateDesignerFile>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+    <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
+    
+    <!-- Packaging properties -->
     <PackageId>AppsFlyerXamarinBindingAndroid</PackageId>
-    <Title>AppsFlyer SDK for Xamarin Android</Title>
+    <Title>AppsFlyer SDK for .NET Android</Title>
     <Summary>C# binding for AppsFlyer official SDK</Summary>
     <Description>C# binding for AppsFlyer official SDK</Description>
     <Authors>AppsFlyer</Authors>
@@ -22,11 +24,8 @@
     <Copyright>AppsFlyer</Copyright>
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>6.15.0</PackageVersion>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <AndroidClassParser>class-parse</AndroidClassParser>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageVersion>6.17.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,10 +34,14 @@
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="\" />
+    <None Include="../LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
     <TransformFile Include="Transforms\*.xml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\af-android-sdk-6.17.0.aar" />
+  </ItemGroup>
 </Project>

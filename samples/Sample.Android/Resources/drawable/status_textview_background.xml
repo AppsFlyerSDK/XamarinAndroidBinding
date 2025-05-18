@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/palette_light_blue" /> <!-- Background color of the TextView -->
+    <stroke 
+        android:width="2dp" 
+        android:color="@color/palette_dark_blue" /> <!-- Border color -->
+    <corners android:radius="8dp" /> <!-- Rounded corners -->
+    <padding 
+        android:left="10dp"
+        android:top="10dp"
+        android:right="10dp"
+        android:bottom="10dp" />
+</shape> 
