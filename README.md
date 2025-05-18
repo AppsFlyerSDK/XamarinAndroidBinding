@@ -1,15 +1,17 @@
 # .NET Android Binding for AppsFlyer
 
 
-.NET Android Binding integration guide for AppsFlyer
-AppsFlyer .NET Android Binding version `v6.17.0` (.NET 8)
-Built with AppsFlyer Android SDK `v6.17.0`
+.NET Android Binding integration guide for AppsFlyer </br>
+AppsFlyer .NET Android Binding version `v6.17.0` (.NET 8)</br>
+Built with AppsFlyer Android SDK `v6.17.0`</br>
+
+❗ v6.17.0 Breaking Changes ❗
+Starting with v6.17.0, traditional Xamarin Android is no longer supported. The binding now targets .NET 8, providing full compatibility with .NET MAUI and modern .NET Android applications. Projects using previous versions should migrate to .NET 8 when upgrading to v6.17.0 or later.
+
 
 ## <a id="v6-breaking-changes"> ❗ v6 Breaking Changes
 
 We have renamed some of the APIs. For more details, please check out our [Help Center](https://support.appsflyer.com/hc/en-us/articles/115001256006#methods-removeddeprecated-or-renamed)
-
-Starting with v6.17.0, traditional Xamarin Android is no longer supported. The binding now targets .NET 8, providing full compatibility with .NET MAUI and modern .NET Android applications. Projects using previous versions should migrate to .NET 8 when upgrading to v6.17.0 or later.
 
 
 # 1. Overview
