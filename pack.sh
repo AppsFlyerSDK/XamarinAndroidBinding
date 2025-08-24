@@ -20,8 +20,14 @@
 # Build package, rebuild and run sample app for testing:
 #   ./pack.sh -t
 #
+# Build and publish to NuGet (requires NUGET_API_KEY):
+#   ./pack.sh --publish
+#   ./pack.sh -p
+#
 # Combine options:
 #   ./pack.sh -v 6.18.0 -t
+#   ./pack.sh -v 6.18.0 --publish
+#   ./pack.sh -v 6.18.0 -s --publish
 # ------------------------------
 
 # Color codes for better visibility
@@ -179,3 +185,41 @@ fi
 echo -e "${GREEN}Package ready for testing: $PACKAGE_PATH${NC}"
 echo "Use the following to reference in projects:"
 echo -e "${YELLOW}<PackageReference Include=\"AppsFlyerXamarinBindingAndroid\" Version=\"$VERSION\" />${NC}"
+
+# Optional: Publish to NuGet if NUGET_API_KEY is set and --publish flag is used
+PUBLISH=false
+for arg in "$@"; do
+    case $arg in
+        --publish|-p)
+            PUBLISH=true
+            shift
+            ;;
+    esac
+done
+
+if [ "$PUBLISH" = true ]; then
+    if [ -z "$NUGET_API_KEY" ]; then
+        echo -e "${RED}Error: NUGET_API_KEY environment variable not set${NC}"
+        echo "Set it with: export NUGET_API_KEY=\"your_key_here\""
+        echo "Or source your secrets file: source secrets.sh"
+        exit 1
+    fi
+    
+    # Confirmation prompt before publishing
+    echo -e "${YELLOW}⚠️  You are about to publish to NuGet.org:${NC}"
+    echo "   Package: AppsFlyerXamarinBindingAndroid"
+    echo "   Version: $VERSION"
+    echo "   File: $PACKAGE_PATH"
+    echo ""
+    read -p "Are you sure you want to publish this package? (y/N): " confirm
+    
+    if [[ $confirm =~ ^[Yy]$ ]]; then
+        echo "Publishing to NuGet..."
+        dotnet nuget push "$PACKAGE_PATH" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json
+        check_result "Publishing to NuGet"
+        echo -e "${GREEN}Package published successfully!${NC}"
+    else
+        echo -e "${YELLOW}Publishing cancelled by user${NC}"
+        exit 0
+    fi
+fi

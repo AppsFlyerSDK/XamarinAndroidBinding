@@ -406,3 +406,12 @@ ASALocalRun/
 
 # AppsFlyer Sample App Secrets
 samples/Sample.Android/Resources/values/secrets.xml
+
+# Environment variables and secrets
+.env
+.env.local
+.env.production
+.env.staging
+*.env
+secrets.sh
+api-keys.txt
