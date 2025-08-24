@@ -1,8 +1,8 @@
 # .NET Android Binding for AppsFlyer
 
 
-- AppsFlyer .NET Android Binding version: `v6.17.0` (.NET 8)</br>
-- Built with AppsFlyer Android SDK: `v6.17.0`</br>
+- AppsFlyer .NET Android Binding version: `v6.17.3` (.NET 8)</br>
+- Built with AppsFlyer Android SDK: `v6.17.3`</br>
 
 ## ❗ v6.17.0 Breaking Changes ❗
 Starting with v6.17.0, traditional Xamarin Android is no longer supported. The binding now targets .NET 8, providing full compatibility with .NET MAUI and modern .NET Android applications. Projects using previous versions should migrate to .NET 8 when upgrading to v6.17.0 or later.
@@ -83,7 +83,7 @@ https://www.nuget.org/packages/AppsFlyerXamarinBindingAndroid/
 
     1. Go to Project > Add NuGet Packages...
     2. Select the `AppsFlyerXamarinBindingAndroid`
-    3. Select under version -  `6.17.0`
+    3. Select under version -  `6.17.3`
     4. Click `Add Package`
 
 
@@ -528,15 +528,15 @@ AppsFlyerLib.Instance.LogAdRevenue(adRevenueData, additionalParameters);
 ## ValidateAndLogInAppPurchase
 The method validates a purchase event with the store and if the validation is successful, the SDK sends an af_purchase event to AppsFlyer.
 
+> **Note:** Starting with SDK v6.17.3, the `AFPurchaseDetails` constructor has been simplified as part of the ValidateAndLog V2 API updates. The constructor now only requires 3 parameters: `purchaseType`, `purchaseToken`, and `productId`. Revenue and currency information is handled automatically by the SDK.
+
 ### Example:
 ```c#
 // AFPurchaseDetails object that encapsulates all data related to the purchase provided to the validateAndLogInAppPurchase method.
 AFPurchaseDetails purchaseDetails = new AFPurchaseDetails(
     AFPurchaseType.OneTimePurchase,
     "purchase_token",
-    "productId",
-    "40.5",
-    "USD"
+    "productId"
     );
 
 // Optional additional parameters can be added here. This is an example, can be discarded if not needed.
@@ -585,7 +585,7 @@ Starting from version 6.17.0, the AppsFlyer SDK supports .NET 8 and MAUI applica
 
 If you are migrating from an older version of Xamarin to .NET MAUI or .NET 8, follow these steps:
 1. Update your project to target .NET 8
-2. Update the AppsFlyer NuGet package to version 6.17.0 or later
+2. Update the AppsFlyer NuGet package to version 6.17.3 or later
 3. Update any platform-specific code according to the .NET 8/MAUI guidelines
 
 The sample app in this repository demonstrates how to use AppsFlyer SDK with .NET 8.
