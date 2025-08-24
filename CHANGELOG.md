@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## [6.17.3] - 2024-12-19
+
+### Changed
+
+- Updated Android SDK to v6.17.3
+- **Breaking Change**: Simplified `AFPurchaseDetails` constructor as part of ValidateAndLog V2 API updates. Constructor now only requires 3 parameters: `purchaseType`, `purchaseToken`, and `productId`. Revenue and currency information is handled automatically by the SDK.
+
 ## [6.13.1] - 2024-07-22
 
 ### Fixed

@@ -188,14 +188,14 @@ namespace com.appsflyer.xamarinsample
         {
             //AFPurchaseDetails
             // An object that encapsulates all data related to the purchase provided to the validateAndLogInAppPurchase method.
+            // Note: As per v6.17.3, the constructor now only requires 3 parameters (purchaseType, purchaseToken, productId)
             AFPurchaseDetails purchaseDetails = new AFPurchaseDetails(
                 AFPurchaseType.OneTimePurchase,
                 "purchase_token",
-                "productId",
-                "40.5",
-                "USD"
+                "productId"
                 );
 
+            // Additional purchase details (previously called extra_event_values, now purchase_additional_details)
             Dictionary<string, string> customParameters = new Dictionary<string, string>
                 {
                     { "Country", "US" },
@@ -205,6 +205,8 @@ namespace com.appsflyer.xamarinsample
             var validationCallback = new MyPurchaseValidationCallback(this);
 
             AppsFlyerLib.Instance.ValidateAndLogInAppPurchase(purchaseDetails, customParameters, validationCallback);
+            
+            UpdateStatus("Purchase validation requested - check logs for callback results");
         }
     }
 } 
