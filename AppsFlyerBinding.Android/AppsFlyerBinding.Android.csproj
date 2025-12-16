@@ -6,8 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>AppsFlyerBinding.Android</AssemblyName>
     <RootNamespace>AppsFlyerBinding.Android</RootNamespace>
-    <AssemblyVersion>6.17.3</AssemblyVersion>
-    <FileVersion>6.17.3</FileVersion>
+    <AssemblyVersion>6.17.5</AssemblyVersion>
+    <FileVersion>6.17.5</FileVersion>
     
     <!-- Android Binding specific properties -->
     <AndroidUseIntermediateDesignerFile>false</AndroidUseIntermediateDesignerFile>
@@ -25,7 +25,7 @@
     <PackageProjectUrl>https://github.com/AppsFlyerSDK/XamarinAndroidBinding</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageVersion>6.17.3</PackageVersion>
+    <PackageVersion>6.17.5</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,6 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\af-android-sdk-6.17.3.aar" />
+    <LibraryProjectZip Include="Jars\af-android-sdk-6.17.5.aar" />
   </ItemGroup>
 </Project>
