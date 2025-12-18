@@ -31,7 +31,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Default version (can be overridden with -v parameter)
-VERSION=$(grep -o '<Version>[^<]*' AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj | sed 's/<Version>//')
+VERSION=$(grep -o '<PackageVersion>[^<]*' AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj | sed 's/<PackageVersion>//')
 if [ -z "$VERSION" ]; then
     VERSION="6.17.0"
 fi
@@ -91,11 +91,11 @@ check_result "dotnet restore"
 ORIGINAL_PROJECT=$(cat AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj)
 TEMP_VERSION_APPLIED=false
 
-if grep -q "<Version>$VERSION</Version>" AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj; then
+if grep -q "<PackageVersion>$VERSION</PackageVersion>" AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj; then
     echo "Using existing version: $VERSION"
 else
     echo "Temporarily setting version to $VERSION..."
-    sed -i.bak "s|<Version>[^<]*</Version>|<Version>$VERSION</Version>|g" AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj
+    sed -i.bak "s|<PackageVersion>[^<]*</PackageVersion>|<PackageVersion>$VERSION</PackageVersion>|g" AppsFlyerBinding.Android/AppsFlyerBinding.Android.csproj
     TEMP_VERSION_APPLIED=true
 fi
 
