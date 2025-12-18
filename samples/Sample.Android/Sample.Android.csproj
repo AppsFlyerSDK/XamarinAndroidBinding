@@ -12,6 +12,8 @@
         <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
         <!-- Enable this for debugging -->
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+        <!-- Java toolchain version - required for AppsFlyer SDK 6.17.5 which uses Java 17 -->
+        <AndroidJavaToolchain>17</AndroidJavaToolchain>
     </PropertyGroup>
 
      <!-- Use the local NuGet package --> 
